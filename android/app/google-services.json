@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "757018841154",
+    "project_id": "try-on-graduation-project",
+    "storage_bucket": "try-on-graduation-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757018841154:android:d937d2355b128fa85e5ddb",
+        "android_client_info": {
+          "package_name": "com.example.try_on"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0A60ON2TPB7Zrkgf9NU-nosqiPlKSSyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

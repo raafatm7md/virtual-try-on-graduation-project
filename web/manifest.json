@@ -1,6 +1,6 @@
 {
-    "name": "try_on",
-    "short_name": "try_on",
+    "name": "TryOn",
+    "short_name": "TryOn",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#hexcode",
