@@ -24,7 +24,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     super.initState();
 
     // Start the timer to change the page every second
-    timer = Timer.periodic(Duration(seconds: 3), (Timer t) {
+    timer = Timer.periodic(delayTime, (Timer t) {
       if (currentPage < boardingList.length - 1) {
         currentPage++;
       } else {
@@ -56,7 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               controller: boardController,
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) =>
-                  buildOnBoardingItem(boardingList[index]),
+                  buildOnBoardingItem(context, boardingList[index]),
               itemCount: boardingList.length,
               onPageChanged: (index) {
                 // Update the currentPage when the page changes
@@ -84,10 +84,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           ),
           Padding(
             padding: const EdgeInsetsDirectional.only(
-                start: horizontalPadding, end: horizontalPadding, bottom: 80),
+                start: padding, end: padding, bottom: 80),
             child: appButton(
               text: 'Let\'s Start',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/login', (route) => false);
+              },
             ),
           ),
         ],

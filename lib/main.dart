@@ -1,8 +1,10 @@
+import 'package:TryOn/config/routes/app_routes.dart';
+import 'package:TryOn/features/login/presentation/pages/login_screen.dart';
 import 'package:TryOn/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'config/theme/app_theme.dart';
-import 'firebase_options.dart';
+import 'config/firebase/firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: appTheme,
       home: const OnBoardingScreen(),
+      routes: appRoutes,
     );
   }
 }

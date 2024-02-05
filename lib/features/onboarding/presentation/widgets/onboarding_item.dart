@@ -3,7 +3,8 @@ import 'package:TryOn/core/constants/constants.dart';
 import 'package:TryOn/features/onboarding/domain/entities/boarding.dart';
 import 'package:flutter/material.dart';
 
-Widget buildOnBoardingItem(BoardingEntity boardingItem) => Column(
+Widget buildOnBoardingItem(BuildContext context, BoardingEntity boardingItem) =>
+    Column(
       children: [
         Expanded(
             child: Image(
@@ -14,14 +15,13 @@ Widget buildOnBoardingItem(BoardingEntity boardingItem) => Column(
           height: 20.0,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
+          padding: const EdgeInsets.symmetric(horizontal: padding),
           child: Column(
             children: [
               Text(
                 boardingItem.title,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontSize: 24.0, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(
                 height: 8.0,
