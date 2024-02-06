@@ -21,75 +21,99 @@ class LoginScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Image(
-                  image: AssetImage(AppImageAsset.logo),
-                  height: 130,
-                  width: 130,
+                Padding(
+                  padding: const EdgeInsets.only(top: 80.0, bottom: 30.0),
+                  child: Image(
+                    image: AssetImage(AppImageAsset.logo),
+                    height: 170,
+                    width: 170,
+                  ),
                 ),
                 Text(
                   'Login',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontSize: 30),
+                ),
+                SizedBox(
+                  height: 20.0,
                 ),
                 Text(
                   'Welcome to TryOn',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                ),
+                SizedBox(
+                  height: 30.0,
                 ),
                 Form(
                     key: _formKey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Email',
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
                         appTextFormField(
+                          context,
+                          type: 'Email',
                           fieldController: _emailController,
                           inputType: TextInputType.emailAddress,
-                          hintText: 'Enter email address',
+                          hintText: 'Enter your email address',
                         ),
-                        Text(
-                          'Password',
-                          style: Theme.of(context).textTheme.titleSmall,
+                        SizedBox(
+                          height: 20.0,
                         ),
                         appTextFormField(
-                            fieldController: _passwordController,
-                            inputType: TextInputType.visiblePassword,
-                            hintText: 'Enter your password',
-                            suffix: Icon(
-                              Icons.visibility_outlined,
-                              size: 25,
-                            )),
+                          context,
+                          type: 'Password',
+                          fieldController: _passwordController,
+                          inputType: TextInputType.visiblePassword,
+                          hintText: 'Enter your password',
+                          suffix: Icon(
+                            Icons.visibility_outlined,
+                            size: 25,
+                          ),
+                        ),
                         Container(
                           height: 35.0,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/resetPassword');
+                            },
                             style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
                                 foregroundColor: AppColor.secondaryColor),
                             child: Text(
                               'Forgot Password?',
+                              style: TextStyle(fontSize: 15),
                             ),
                           ),
                         ),
                       ],
                     )),
+                SizedBox(
+                  height: 20.0,
+                ),
                 appButton(
                   text: 'Log In',
                   onPressed: () {},
+                ),
+                SizedBox(
+                  height: 20.0,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Don\'t have an account?',
-                      style: TextStyle(color: Colors.grey[700]),
+                      style: TextStyle(color: Colors.grey[700], fontSize: 16),
                     ),
                     TextButton(
                         onPressed: () {},
+                        style: TextButton.styleFrom(
+                            foregroundColor: AppColor.secondaryColor),
                         child: Text(
                           'Sign Up',
-                          style: TextStyle(color: AppColor.secondaryColor),
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         )),
                   ],
                 )
