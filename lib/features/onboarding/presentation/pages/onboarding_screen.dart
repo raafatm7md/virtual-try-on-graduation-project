@@ -1,4 +1,4 @@
-import 'package:TryOn/core/constants/color.dart';
+import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/constants.dart';
 import 'package:TryOn/core/widgets/app_button.dart';
 import 'package:TryOn/features/onboarding/data/data_sources/onboarding_data.dart';
@@ -73,7 +73,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             controller: boardController,
             count: boardingList.length,
             effect: const ExpandingDotsEffect(
-                activeDotColor: AppColor.primaryColor,
+                activeDotColor: AppColors.primaryColor,
                 dotHeight: 10,
                 dotWidth: 10,
                 expansionFactor: 2,
@@ -83,8 +83,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             height: 35,
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.only(
-                start: padding, end: padding, bottom: 80),
+            padding: EdgeInsetsDirectional.only(
+                start: padding,
+                end: padding,
+                bottom: MediaQuery.of(context).size.height / 11.2),
             child: appButton(
               text: 'Let\'s Start',
               onPressed: () {

@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       title: 'TryOn',
       debugShowCheckedModeBanner: false,
       theme: appTheme,
-      home: const OnBoardingScreen(),
+      initialRoute: '/',
       routes: appRoutes,
     );
   }

@@ -1,4 +1,4 @@
-import 'package:TryOn/core/constants/color.dart';
+import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/constants.dart';
 import 'package:TryOn/features/onboarding/domain/entities/boarding.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ Widget buildOnBoardingItem(BuildContext context, BoardingEntity boardingItem) =>
               Text(
                 boardingItem.body,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 18.0, color: AppColor.grey),
+                style: const TextStyle(fontSize: 18.0, color: AppColors.grey),
               ),
             ],
           ),

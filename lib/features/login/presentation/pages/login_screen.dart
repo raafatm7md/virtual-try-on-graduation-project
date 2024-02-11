@@ -1,4 +1,4 @@
-import 'package:TryOn/core/constants/color.dart';
+import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/constants.dart';
 import 'package:TryOn/core/constants/images.dart';
 import 'package:TryOn/core/widgets/app_button.dart';
@@ -22,7 +22,9 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 80.0, bottom: 30.0),
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height / 11.7,
+                      bottom: 30.0),
                   child: Image(
                     image: AssetImage(AppImageAsset.logo),
                     height: 170,
@@ -80,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                             },
                             style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
-                                foregroundColor: AppColor.secondaryColor),
+                                foregroundColor: AppColors.secondaryColor),
                             child: Text(
                               'Forgot Password?',
                               style: TextStyle(fontSize: 15),
@@ -109,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                     TextButton(
                         onPressed: () {},
                         style: TextButton.styleFrom(
-                            foregroundColor: AppColor.secondaryColor),
+                            foregroundColor: AppColors.secondaryColor),
                         child: Text(
                           'Sign Up',
                           style: TextStyle(

@@ -1,8 +1,8 @@
-import 'package:TryOn/core/constants/color.dart';
+import 'package:TryOn/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 Widget appButton({
-  Color color = AppColor.primaryColor,
+  Color color = AppColors.primaryColor,
   required String text,
   required void Function() onPressed,
 }) =>
