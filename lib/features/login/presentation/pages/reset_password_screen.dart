@@ -44,7 +44,7 @@ class ResetPasswordScreen extends StatelessWidget {
                   key: _formKey,
                   child: Column(
                     children: [
-                      appTextFormField(
+                      AppTextFormField(
                         context,
                         type: 'Email',
                         fieldController: _emailController,
@@ -56,7 +56,7 @@ class ResetPasswordScreen extends StatelessWidget {
               SizedBox(
                 height: 30.0,
               ),
-              appButton(
+              AppButton(
                 text: 'SEND',
                 onPressed: () {
                   Navigator.push(
@@ -128,7 +128,7 @@ class OTPScreen extends StatelessWidget {
               SizedBox(
                 height: 30.0,
               ),
-              appButton(
+              AppButton(
                 text: 'SEND',
                 onPressed: () {
                   Navigator.push(
@@ -186,7 +186,7 @@ class NewPasswordScreen extends StatelessWidget {
                   key: _formKey,
                   child: Column(
                     children: [
-                      appTextFormField(
+                      AppTextFormField(
                         context,
                         type: 'Password',
                         fieldController: _passwordController,
@@ -196,7 +196,7 @@ class NewPasswordScreen extends StatelessWidget {
                       SizedBox(
                         height: 20.0,
                       ),
-                      appTextFormField(
+                      AppTextFormField(
                         context,
                         type: 'Confirm Password',
                         fieldController: _passwordConfirmController,
@@ -208,7 +208,7 @@ class NewPasswordScreen extends StatelessWidget {
               SizedBox(
                 height: 30.0,
               ),
-              appButton(
+              AppButton(
                 text: 'CONFIRM',
                 onPressed: () {
                   Navigator.popUntil(context, ModalRoute.withName('/login'));

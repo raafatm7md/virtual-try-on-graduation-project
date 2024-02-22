@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
 
-Widget appTextFormField(
-  BuildContext context, {
-  required String type,
-  required TextEditingController fieldController,
-  required TextInputType inputType,
-  required String hintText,
-  bool isPassword = false,
-  Widget? suffix,
-}) =>
-    Column(
+// Widget AppTextFormField(
+//   , {
+//
+// }) =>
+
+class AppTextFormField extends StatelessWidget {
+  final BuildContext context;
+  final String type;
+  final TextEditingController fieldController;
+  final TextInputType inputType;
+  final String hintText;
+  final bool isPassword;
+  final Widget? suffix;
+  const AppTextFormField(
+    this.context, {
+    super.key,
+    required this.type,
+    required this.fieldController,
+    required this.inputType,
+    required this.hintText,
+    this.isPassword = false,
+    this.suffix,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -40,3 +57,5 @@ Widget appTextFormField(
         ),
       ],
     );
+  }
+}

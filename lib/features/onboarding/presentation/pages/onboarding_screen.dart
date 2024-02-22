@@ -87,7 +87,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 start: padding,
                 end: padding,
                 bottom: MediaQuery.of(context).size.height / 11.2),
-            child: appButton(
+            child: AppButton(
               text: 'Let\'s Start',
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(

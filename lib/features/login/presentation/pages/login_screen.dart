@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        appTextFormField(
+                        AppTextFormField(
                           context,
                           type: 'Email',
                           fieldController: _emailController,
@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(
                           height: 20.0,
                         ),
-                        appTextFormField(
+                        AppTextFormField(
                           context,
                           type: 'Password',
                           fieldController: _passwordController,
@@ -94,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
-                appButton(
+                AppButton(
                   text: 'Log In',
                   onPressed: () {},
                 ),
