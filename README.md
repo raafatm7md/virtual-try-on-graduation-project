@@ -1,4 +1,4 @@
-# try_on
+# TryOn
 
 Virtual Try-On project
 
