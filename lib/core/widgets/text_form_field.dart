@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 
-// Widget AppTextFormField(
-//   , {
-//
-// }) =>
-
 class AppTextFormField extends StatelessWidget {
   final BuildContext context;
   final String type;

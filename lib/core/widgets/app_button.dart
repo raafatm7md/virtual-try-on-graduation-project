@@ -26,6 +26,5 @@ class AppButton extends StatelessWidget {
           text,
           style: const TextStyle(fontSize: 16),
         ));
-    ;
   }
 }
