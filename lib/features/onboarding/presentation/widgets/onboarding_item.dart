@@ -1,10 +1,16 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/constants.dart';
-import 'package:TryOn/features/onboarding/domain/entities/boarding.dart';
+import 'package:TryOn/features/onboarding/domain/entities/boarding_entity.dart';
 import 'package:flutter/material.dart';
 
-Widget buildOnBoardingItem(BuildContext context, BoardingEntity boardingItem) =>
-    Column(
+class OnBoardingItem extends StatelessWidget {
+  final BuildContext context;
+  final BoardingEntity boardingItem;
+  const OnBoardingItem(this.context, {super.key, required this.boardingItem});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       children: [
         Expanded(
             child: Image(
@@ -36,3 +42,5 @@ Widget buildOnBoardingItem(BuildContext context, BoardingEntity boardingItem) =>
         ),
       ],
     );
+  }
+}

@@ -1,5 +1,5 @@
 import 'package:TryOn/core/constants/images.dart';
-import 'package:TryOn/features/onboarding/domain/entities/boarding.dart';
+import 'package:TryOn/features/onboarding/domain/entities/boarding_entity.dart';
 
 List<BoardingEntity> boardingList = [
   BoardingEntity(

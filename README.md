@@ -1,6 +1,6 @@
 # try_on
 
-Virtual Try-On project.
+Virtual Try-On project
 
 ## Getting Started
 

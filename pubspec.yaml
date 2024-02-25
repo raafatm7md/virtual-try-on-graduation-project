@@ -1,18 +1,17 @@
 name: TryOn
-description: Virtually Try-On OutFits.
+description: "Virtually Try-On OutFits"
 
 publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.1.5 <4.0.0'
+  sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.6
   flutter_bloc: ^8.1.3
   firebase_core: ^2.24.2
   dio: ^5.4.0
@@ -21,10 +20,12 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  flutter_screenutil: ^5.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^3.0.0
   hive_generator: ^2.0.1
   build_runner: ^2.4.8
   flutter_launcher_icons: ^0.13.1
@@ -56,23 +57,8 @@ flutter_native_splash:
     image: "assets/images/logo/logo-padding.png"
   fullscreen: true
 
-  flutter_lints: ^2.0.0
-
 flutter:
   uses-material-design: true
-
   assets:
-     - assets/images/logo/
-     - assets/images/onboarding/
-
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+    - assets/images/logo/
+    - assets/images/onboarding/
