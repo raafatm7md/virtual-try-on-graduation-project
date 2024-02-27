@@ -1,5 +1,6 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppButton extends StatelessWidget {
   final Color color;
@@ -18,13 +19,13 @@ class AppButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
             backgroundColor: color,
-            fixedSize: Size(double.maxFinite, 50),
+            fixedSize: Size(double.maxFinite, 50.h),
             alignment: AlignmentDirectional.center,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
         child: Text(
           text,
-          style: const TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 16.sp),
         ));
   }
 }

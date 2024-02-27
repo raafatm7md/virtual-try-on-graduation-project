@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: padding),
+          padding: EdgeInsets.symmetric(horizontal: padding),
           child: SingleChildScrollView(
             child: Column(
               children: [

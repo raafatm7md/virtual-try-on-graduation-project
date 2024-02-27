@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:TryOn/core/constants/constants.dart';
+import 'package:TryOn/features/onboarding/domain/repositories/onboarding_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -7,12 +8,13 @@ import 'package:meta/meta.dart';
 part 'onboarding_state.dart';
 
 class OnboardingCubit extends Cubit<OnboardingState> {
-  OnboardingCubit() : super(OnboardingInitial());
+  OnboardingCubit(this.onBoardingRepo) : super(OnboardingInitial());
   static OnboardingCubit get(context) => BlocProvider.of(context);
 
+  final OnBoardingRepo onBoardingRepo;
   PageController boardController = PageController();
-  int currentPage = 0;
   late Timer timer;
+  int currentPage = 0;
 
   void updateCurrentPage(int index) {
     currentPage = index;
@@ -20,22 +22,13 @@ class OnboardingCubit extends Cubit<OnboardingState> {
 
   void startAnimate(int maxLength) {
     timer = Timer.periodic(delayTime, (Timer t) {
-      if (currentPage < maxLength - 1) {
-        currentPage++;
-      } else {
-        currentPage = 0;
-      }
-      boardController.animateToPage(
-        currentPage,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
+      currentPage = onBoardingRepo.updatePageNumber(currentPage, maxLength);
+      onBoardingRepo.animateOnboarding(boardController, currentPage);
     });
   }
 
   void dispose() {
     emit(OnboardingDone());
     timer.cancel();
-    boardController.dispose();
   }
 }

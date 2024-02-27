@@ -24,7 +24,7 @@ class ResetPasswordScreen extends StatelessWidget {
         title: Text('Forgot Password'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: padding),
+        padding: EdgeInsets.symmetric(horizontal: padding),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -93,7 +93,7 @@ class OTPScreen extends StatelessWidget {
         title: Text('OTP'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: padding),
+        padding: EdgeInsets.symmetric(horizontal: padding),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -166,7 +166,7 @@ class NewPasswordScreen extends StatelessWidget {
         title: Text('New Password'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: padding),
+        padding: EdgeInsets.symmetric(horizontal: padding),
         child: SingleChildScrollView(
           child: Column(
             children: [
