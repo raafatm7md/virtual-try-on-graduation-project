@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
                   padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height / 11.7,
                       bottom: 30.0),
-                  child: Image(
+                  child: const Image(
                     image: AssetImage(AppImageAsset.logo),
                     height: 170,
                     width: 170,
@@ -38,14 +38,14 @@ class LoginScreen extends StatelessWidget {
                       .titleLarge
                       ?.copyWith(fontSize: 30),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
-                Text(
+                const Text(
                   'Welcome to TryOn',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30.0,
                 ),
                 Form(
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                           inputType: TextInputType.emailAddress,
                           hintText: 'Enter your email address',
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20.0,
                         ),
                         AppTextFormField(
@@ -69,12 +69,12 @@ class LoginScreen extends StatelessWidget {
                           fieldController: _passwordController,
                           inputType: TextInputType.visiblePassword,
                           hintText: 'Enter your password',
-                          suffix: Icon(
+                          suffix: const Icon(
                             Icons.visibility_outlined,
                             size: 25,
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           height: 35.0,
                           child: TextButton(
                             onPressed: () {
@@ -83,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                             style: TextButton.styleFrom(
                                 padding: EdgeInsets.zero,
                                 foregroundColor: AppColors.secondaryColor),
-                            child: Text(
+                            child: const Text(
                               'Forgot Password?',
                               style: TextStyle(fontSize: 15),
                             ),
@@ -91,14 +91,14 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ],
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 AppButton(
                   text: 'Log In',
                   onPressed: () {},
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 Row(
@@ -112,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {},
                         style: TextButton.styleFrom(
                             foregroundColor: AppColors.secondaryColor),
-                        child: Text(
+                        child: const Text(
                           'Sign Up',
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),

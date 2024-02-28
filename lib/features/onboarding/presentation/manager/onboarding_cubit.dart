@@ -3,7 +3,6 @@ import 'package:TryOn/core/constants/constants.dart';
 import 'package:TryOn/features/onboarding/domain/repositories/onboarding_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'onboarding_state.dart';
 

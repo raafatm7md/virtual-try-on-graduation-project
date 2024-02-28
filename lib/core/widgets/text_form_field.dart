@@ -25,13 +25,13 @@ class AppTextFormField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '$type',
+          type,
           style: Theme.of(context).textTheme.titleSmall,
         ),
-        SizedBox(
+        const SizedBox(
           height: 2,
         ),
-        Container(
+        SizedBox(
           height: 50,
           child: TextFormField(
             obscureText: isPassword,
@@ -39,7 +39,7 @@ class AppTextFormField extends StatelessWidget {
             keyboardType: inputType,
             decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: TextStyle(fontSize: 15),
+              hintStyle: const TextStyle(fontSize: 15),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),

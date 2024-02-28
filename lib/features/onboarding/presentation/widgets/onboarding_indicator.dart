@@ -1,7 +1,6 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/features/onboarding/presentation/manager/onboarding_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -12,7 +11,7 @@ class OnBoardingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
-      controller: BlocProvider.of<OnboardingCubit>(context).boardController,
+      controller: OnboardingCubit.get(context).boardController,
       count: count,
       effect: ExpandingDotsEffect(
           activeDotColor: AppColors.primaryColor,

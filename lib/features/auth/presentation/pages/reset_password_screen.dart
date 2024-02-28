@@ -19,9 +19,9 @@ class ResetPasswordScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
-        title: Text('Forgot Password'),
+        title: const Text('Forgot Password'),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: padding),
@@ -37,7 +37,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     fontSize: MediaQuery.of(context).size.width / 28,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               Form(
@@ -53,7 +53,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       )
                     ],
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               AppButton(
@@ -78,7 +78,7 @@ class OTPScreen extends StatelessWidget {
   OTPScreen({super.key});
 
   final _formKey = GlobalKey<FormState>();
-  final _OTPController = TextEditingController();
+  final _otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -88,9 +88,9 @@ class OTPScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
-        title: Text('OTP'),
+        title: const Text('OTP'),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: padding),
@@ -106,7 +106,7 @@ class OTPScreen extends StatelessWidget {
                     fontSize: MediaQuery.of(context).size.width / 28,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               Form(
@@ -117,15 +117,15 @@ class OTPScreen extends StatelessWidget {
                         numberOfFields: 5,
                         focusedBorderColor: AppColors.secondaryColor,
                         cursorColor: AppColors.secondaryColor,
-                        textStyle: TextStyle(fontSize: 20),
+                        textStyle: const TextStyle(fontSize: 20),
                         enabledBorderColor: AppColors.grey,
                         onSubmit: (String verificationCode) {
-                          _OTPController.text = verificationCode;
+                          _otpController.text = verificationCode;
                         }, // end onSubmit
                       ),
                     ],
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               AppButton(
@@ -161,9 +161,9 @@ class NewPasswordScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
-        title: Text('New Password'),
+        title: const Text('New Password'),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: padding),
@@ -179,7 +179,7 @@ class NewPasswordScreen extends StatelessWidget {
                     fontSize: MediaQuery.of(context).size.width / 28,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               Form(
@@ -193,7 +193,7 @@ class NewPasswordScreen extends StatelessWidget {
                         inputType: TextInputType.emailAddress,
                         hintText: 'Enter a new password',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20.0,
                       ),
                       AppTextFormField(
@@ -205,7 +205,7 @@ class NewPasswordScreen extends StatelessWidget {
                       )
                     ],
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               AppButton(
