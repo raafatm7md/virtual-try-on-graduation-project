@@ -3,7 +3,7 @@ import 'package:TryOn/features/auth/domain/repositories/reset_password_repo.dart
 
 class ResetPasswordRepoImpl implements ResetPasswordRepo {
   @override
-  Future<DataState> findAccount() {
+  Future<DataState> sendEmail() {
     // TODO: implement findAccount
     throw UnimplementedError();
   }
