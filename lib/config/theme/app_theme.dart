@@ -8,9 +8,9 @@ final appTheme = ThemeData(
     primarySwatch: Colors.deepOrange,
     textTheme: TextTheme(
         titleLarge: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.bold),
-        titleSmall: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-    appBarTheme: const AppBarTheme(
+        titleSmall: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
+    appBarTheme: AppBarTheme(
       centerTitle: true,
       titleTextStyle: TextStyle(
-          fontSize: 26.0, fontWeight: FontWeight.bold, color: Colors.black),
+          fontSize: 26.sp, fontWeight: FontWeight.bold, color: Colors.black),
     ));

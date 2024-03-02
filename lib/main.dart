@@ -1,6 +1,6 @@
 import 'package:TryOn/config/routes/app_routes.dart';
-import 'package:TryOn/core/constants/bloc_observer.dart';
-import 'package:TryOn/core/utilits/service_locator/service_locator.dart';
+import 'package:TryOn/core/utilits/functions/bloc_observer.dart';
+import 'package:TryOn/core/utilits/functions/service_locator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

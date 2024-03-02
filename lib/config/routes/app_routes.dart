@@ -5,6 +5,6 @@ import 'package:flutter/material.dart';
 
 Map<String, Widget Function(BuildContext)> appRoutes = {
   '/': (context) => const OnBoardingScreen(),
-  '/login': (context) => LoginScreen(),
+  '/login': (context) => const LoginScreen(),
   '/resetPassword': (context) => ResetPasswordScreen(),
 };

@@ -1,9 +1,9 @@
 import 'package:TryOn/core/resources/data_state.dart';
 import 'package:TryOn/core/use_cases/use_cases.dart';
-import 'package:TryOn/features/auth/domain/repositories/login_repositories.dart';
+import 'package:TryOn/features/auth/domain/repositories/login_repo.dart';
 
 class GetLoginUseCases implements UseCases<DataState, void> {
-  final LoginRepositories _loginRepositories;
+  final LoginRepo _loginRepositories;
 
   GetLoginUseCases(this._loginRepositories);
   @override

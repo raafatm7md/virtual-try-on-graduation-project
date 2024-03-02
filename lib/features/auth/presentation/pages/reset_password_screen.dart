@@ -4,6 +4,7 @@ import 'package:TryOn/core/widgets/text_form_field.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:TryOn/core/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   ResetPasswordScreen({super.key});
@@ -19,7 +20,7 @@ class ResetPasswordScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios_new),
+          icon: Icon(Icons.arrow_back_ios_new, size: 26.sp),
         ),
         title: const Text('Forgot Password'),
       ),
@@ -28,24 +29,18 @@ class ResetPasswordScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 45,
-              ),
+              SizedBox(height: 20.h),
               Text(
                 'Enter your email address to reset your password',
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width / 28,
-                    fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(fontSize: 15.8.sp, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(
-                height: 30.0,
-              ),
+              SizedBox(height: 30.h),
               Form(
                   key: _formKey,
                   child: Column(
                     children: [
                       AppTextFormField(
-                        context,
                         type: 'Email',
                         fieldController: _emailController,
                         inputType: TextInputType.emailAddress,
@@ -53,9 +48,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       )
                     ],
                   )),
-              const SizedBox(
-                height: 30.0,
-              ),
+              SizedBox(height: 30.h),
               AppButton(
                 text: 'SEND',
                 onPressed: () {
@@ -88,7 +81,7 @@ class OTPScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios_new),
+          icon: Icon(Icons.arrow_back_ios_new, size: 26.sp),
         ),
         title: const Text('OTP'),
       ),
@@ -97,18 +90,13 @@ class OTPScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 45,
-              ),
+              SizedBox(height: 20.h),
               Text(
                 'Enter the OTP sent to your email address',
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width / 28,
-                    fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(fontSize: 15.8.sp, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(
-                height: 30.0,
-              ),
+              SizedBox(height: 30.h),
               Form(
                   key: _formKey,
                   child: Column(
@@ -117,7 +105,7 @@ class OTPScreen extends StatelessWidget {
                         numberOfFields: 5,
                         focusedBorderColor: AppColors.secondaryColor,
                         cursorColor: AppColors.secondaryColor,
-                        textStyle: const TextStyle(fontSize: 20),
+                        textStyle: TextStyle(fontSize: 20.sp),
                         enabledBorderColor: AppColors.grey,
                         onSubmit: (String verificationCode) {
                           _otpController.text = verificationCode;
@@ -125,9 +113,7 @@ class OTPScreen extends StatelessWidget {
                       ),
                     ],
                   )),
-              const SizedBox(
-                height: 30.0,
-              ),
+              SizedBox(height: 30.h),
               AppButton(
                 text: 'SEND',
                 onPressed: () {
@@ -161,7 +147,7 @@ class NewPasswordScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios_new),
+          icon: Icon(Icons.arrow_back_ios_new, size: 26.sp),
         ),
         title: const Text('New Password'),
       ),
@@ -170,34 +156,25 @@ class NewPasswordScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 45,
-              ),
+              SizedBox(height: 20.h),
               Text(
                 'Create a new password',
-                style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width / 28,
-                    fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(fontSize: 15.8.sp, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(
-                height: 30.0,
-              ),
+              SizedBox(height: 30.h),
               Form(
                   key: _formKey,
                   child: Column(
                     children: [
                       AppTextFormField(
-                        context,
                         type: 'Password',
                         fieldController: _passwordController,
                         inputType: TextInputType.emailAddress,
                         hintText: 'Enter a new password',
                       ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
+                      SizedBox(height: 20.h),
                       AppTextFormField(
-                        context,
                         type: 'Confirm Password',
                         fieldController: _passwordConfirmController,
                         inputType: TextInputType.emailAddress,
@@ -205,9 +182,7 @@ class NewPasswordScreen extends StatelessWidget {
                       )
                     ],
                   )),
-              const SizedBox(
-                height: 30.0,
-              ),
+              SizedBox(height: 30.h),
               AppButton(
                 text: 'CONFIRM',
                 onPressed: () {

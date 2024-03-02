@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextFormField extends StatelessWidget {
-  final BuildContext context;
   final String type;
   final TextEditingController fieldController;
   final TextInputType inputType;
   final String hintText;
   final bool isPassword;
   final Widget? suffix;
-  const AppTextFormField(
-    this.context, {
+  const AppTextFormField({
     super.key,
     required this.type,
     required this.fieldController,
@@ -28,18 +27,16 @@ class AppTextFormField extends StatelessWidget {
           type,
           style: Theme.of(context).textTheme.titleSmall,
         ),
-        const SizedBox(
-          height: 2,
-        ),
+        const SizedBox(height: 2.0),
         SizedBox(
-          height: 50,
+          height: 50.h,
           child: TextFormField(
             obscureText: isPassword,
             controller: fieldController,
             keyboardType: inputType,
             decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: const TextStyle(fontSize: 15),
+              hintStyle: TextStyle(fontSize: 16.sp),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),
