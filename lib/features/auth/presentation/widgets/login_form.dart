@@ -31,6 +31,7 @@ class LoginForm extends StatelessWidget {
                 ),
                 AppTextFormField(
                   type: 'Password',
+                  isPassword: true,
                   fieldController: _passwordController,
                   inputType: TextInputType.visiblePassword,
                   hintText: 'Enter your password',

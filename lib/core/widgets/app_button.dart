@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +21,7 @@ class AppButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,
             backgroundColor: color,
-            fixedSize: Size(double.maxFinite, 50.h),
+            fixedSize: Size(1.sw, max(50.h, 50.w)),
             alignment: AlignmentDirectional.center,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),

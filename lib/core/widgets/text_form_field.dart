@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:TryOn/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,7 +32,7 @@ class AppTextFormField extends StatelessWidget {
         ),
         const SizedBox(height: 2.0),
         SizedBox(
-          height: 50.h,
+          height: max(50.h, 50.w),
           child: TextFormField(
             obscureText: isPassword,
             controller: fieldController,
