@@ -29,14 +29,22 @@ class OnBoardingScreen extends StatelessWidget {
               child: Column(
                 children: [
                   OnBoardingItemsBuilder(boardingList: boardingList),
-                  SizedBox(height: 35.h),
-                  OnBoardingIndicator(count: boardingList.length),
-                  SizedBox(height: 35.h),
-                  Padding(
-                    padding: EdgeInsetsDirectional.only(
-                        start: padding, end: padding, bottom: 80.h),
-                    child: AppButton(
-                        text: 'Let\'s Start', onPressed: () => cubit.dispose()),
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      children: [
+                        SizedBox(height: 35.h),
+                        OnBoardingIndicator(count: boardingList.length),
+                        SizedBox(height: 35.h),
+                        Padding(
+                          padding: EdgeInsetsDirectional.symmetric(
+                              horizontal: padding),
+                          child: AppButton(
+                              text: 'Let\'s Start',
+                              onPressed: () => cubit.dispose()),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/constants.dart';
 import 'package:TryOn/features/onboarding/domain/entities/boarding_entity.dart';
@@ -17,7 +18,7 @@ class OnBoardingItem extends StatelessWidget {
         Image(
             image: AssetImage(boardingItem.image),
             alignment: AlignmentDirectional.bottomCenter,
-            height: boardingItem.imgHeight.h,
+            height: min(boardingItem.imgHeight.dg, boardingItem.imgHeight.h),
             width: boardingItem.imgWidth.w,
             fit: BoxFit.fitHeight),
         SizedBox(height: 25.h),

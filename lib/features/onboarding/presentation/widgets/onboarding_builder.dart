@@ -10,6 +10,7 @@ class OnBoardingItemsBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 3,
       child: PageView.builder(
         controller: OnboardingCubit.get(context).boardController,
         physics: const BouncingScrollPhysics(),

@@ -17,7 +17,7 @@ class OnBoardingIndicator extends StatelessWidget {
           activeDotColor: AppColors.primaryColor,
           dotHeight: 10.h,
           dotWidth: 10.w,
-          expansionFactor: 2.w,
+          expansionFactor: 2,
           spacing: 15.w),
     );
   }
