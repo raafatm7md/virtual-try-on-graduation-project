@@ -26,9 +26,7 @@ class LoginForm extends StatelessWidget {
                   inputType: TextInputType.emailAddress,
                   hintText: 'Enter your email address',
                 ),
-                SizedBox(
-                  height: 20.h,
-                ),
+                SizedBox(height: 20.h),
                 AppTextFormField(
                   type: 'Password',
                   isPassword: true,
@@ -57,9 +55,7 @@ class LoginForm extends StatelessWidget {
                 ),
               ],
             )),
-        SizedBox(
-          height: 20.h,
-        ),
+        SizedBox(height: 20.h),
         AppButton(
           text: 'Log In',
           onPressed: () {},

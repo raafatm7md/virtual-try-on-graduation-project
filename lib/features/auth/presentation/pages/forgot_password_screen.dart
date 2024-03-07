@@ -3,9 +3,8 @@ import 'package:TryOn/features/auth/presentation/manager/forgot_password/forgot_
 import 'package:TryOn/features/auth/presentation/widgets/otp_body.dart';
 import 'package:TryOn/features/auth/presentation/widgets/reset_password_body.dart';
 import 'package:TryOn/features/auth/presentation/widgets/send_email_body.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
@@ -26,7 +25,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back_ios_new, size: 26.sp),
+                icon: backIcon,
               ),
               title: state is ResetPasswordState
                   ? const Text('New Password')

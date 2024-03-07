@@ -28,14 +28,14 @@ class ResetPasswordBody extends StatelessWidget {
                 AppTextFormField(
                   type: 'Password',
                   fieldController: _passwordController,
-                  inputType: TextInputType.emailAddress,
+                  inputType: TextInputType.visiblePassword,
                   hintText: 'Enter a new password',
                 ),
                 SizedBox(height: 20.h),
                 AppTextFormField(
                   type: 'Confirm Password',
                   fieldController: _passwordConfirmController,
-                  inputType: TextInputType.emailAddress,
+                  inputType: TextInputType.visiblePassword,
                   hintText: 'Please re-enter your password',
                 )
               ],

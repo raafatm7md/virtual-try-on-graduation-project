@@ -39,7 +39,9 @@ class LoginScreen extends StatelessWidget {
                           TextStyle(color: Colors.grey[700], fontSize: 16.sp),
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/signUp');
+                        },
                         style: TextButton.styleFrom(
                             foregroundColor: AppColors.secondaryColor),
                         child: Text(

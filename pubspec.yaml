@@ -61,5 +61,7 @@ flutter_native_splash:
 flutter:
   uses-material-design: true
   assets:
+    - assets/
+    - assets/images/
     - assets/images/logo/
     - assets/images/onboarding/

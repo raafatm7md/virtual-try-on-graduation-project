@@ -11,6 +11,7 @@ final appTheme = ThemeData(
         titleSmall: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
     appBarTheme: AppBarTheme(
       centerTitle: true,
+      surfaceTintColor: Colors.white,
       titleTextStyle: TextStyle(
           fontSize: 26.sp, fontWeight: FontWeight.bold, color: Colors.black),
     ));
