@@ -58,7 +58,10 @@ class LoginForm extends StatelessWidget {
         SizedBox(height: 20.h),
         AppButton(
           text: 'Log In',
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/home', (route) => false);
+          },
         ),
       ],
     );

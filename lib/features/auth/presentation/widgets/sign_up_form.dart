@@ -84,7 +84,10 @@ class SignUpForm extends StatelessWidget {
         SizedBox(height: 30.h),
         AppButton(
           text: 'Sign Up',
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/home', (route) => false);
+          },
         ),
       ],
     );
