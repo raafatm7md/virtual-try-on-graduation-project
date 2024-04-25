@@ -34,7 +34,7 @@ class SignUpForm extends StatelessWidget {
                 onPressed: () {},
                 icon: CircleAvatar(
                   backgroundColor: const Color(0xFFF0F0F0),
-                  radius: 30.r,
+                  radius: 28.r,
                   child: Icon(
                     Icons.image_outlined,
                     size: 32.sp,
