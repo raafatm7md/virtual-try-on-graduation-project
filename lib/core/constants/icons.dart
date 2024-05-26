@@ -14,4 +14,11 @@ class CustomIcons {
   static SvgPicture personActive =
       SvgPicture.asset('assets/icons/person_active.svg');
   static SvgPicture camera = SvgPicture.asset('assets/icons/camera.svg');
+
+  static SvgPicture gender = SvgPicture.asset('assets/icons/gender.svg');
+  static SvgPicture date = SvgPicture.asset('assets/icons/date.svg');
+  static SvgPicture email = SvgPicture.asset('assets/icons/email.svg');
+  static SvgPicture phone = SvgPicture.asset('assets/icons/phone.svg');
+  static SvgPicture address = SvgPicture.asset('assets/icons/location.svg');
+  static SvgPicture password = SvgPicture.asset('assets/icons/password.svg');
 }

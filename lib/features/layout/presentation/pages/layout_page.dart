@@ -27,7 +27,10 @@ class LayoutPage extends StatelessWidget {
                     onPressed: () {}, icon: const Icon(Icons.search_outlined))
               ],
             ),
-            body: cubit.screens[cubit.currentIndex],
+            body: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.w),
+              child: cubit.screens[cubit.currentIndex],
+            ),
             bottomNavigationBar: CustomBottomBar(
               items: [
                 TabItem<Widget>(
