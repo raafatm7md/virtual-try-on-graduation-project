@@ -2,6 +2,7 @@ import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/icons.dart';
 import 'package:TryOn/features/layout/presentation/manager/app_cubit.dart';
 import 'package:TryOn/features/layout/presentation/widgets/custom_bottom_bar.dart';
+import 'package:TryOn/features/tryon/presentation/manager/camera_kit_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +16,7 @@ class LayoutPage extends StatelessWidget {
       create: (context) => AppCubit(),
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {
-          if (state is StartTryOn) Navigator.pushNamed(context, '/tryOn');
+          if (state is StartTryOn) CameraKitCubit.get(context).openCameraKit();
         },
         builder: (context, state) {
           var cubit = AppCubit.get(context);

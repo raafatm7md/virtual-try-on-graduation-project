@@ -49,5 +49,9 @@
 		<true/>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
+		<key>NSCameraUsageDescription</key>
+        <string>app need camera permission for showing AR camera</string>
+        <key>NSMicrophoneUsageDescription</key>
+        <string>app need microphone permission for recording a video</string>
 	</dict>
 </plist>
