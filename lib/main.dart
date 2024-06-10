@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isLoggedIn = false;
     final bool isPhone = MediaQuery.of(context).size.shortestSide < 550;
 
     if (isPhone) {
@@ -49,7 +48,7 @@ class MyApp extends StatelessWidget {
           title: 'TryOn',
           debugShowCheckedModeBanner: false,
           theme: appTheme,
-          initialRoute: isLoggedIn ? '/home' : '/',
+          initialRoute: '/',
           routes: appRoutes,
         ),
       ),

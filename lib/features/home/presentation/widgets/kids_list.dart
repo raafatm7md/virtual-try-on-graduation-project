@@ -1,3 +1,4 @@
+import 'package:TryOn/features/home/presentation/widgets/products_grid.dart';
 import 'package:flutter/material.dart';
 
 class KidsProducts extends StatelessWidget {
@@ -5,6 +6,6 @@ class KidsProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Kids'));
+    return const ProductsGrid();
   }
 }
