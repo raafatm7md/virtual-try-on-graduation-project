@@ -1,5 +1,5 @@
 import 'package:TryOn/core/constants/colors.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:TryOn/core/widgets/product_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,24 +23,10 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: AspectRatio(
-                aspectRatio: 1.0,
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(12.0),
-                  ),
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        'https://dfcdn.defacto.com.tr/6/X2594AZ_24SM_WT32_01_01.jpg',
-                    fit: BoxFit.cover,
-                    placeholder: (context, url) => Container(
-                      color: Colors.grey[300],
-                    ),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
-                  ),
-                ),
+            const Expanded(
+              child: ProductImage(
+                url:
+                    'https://dfcdn.defacto.com.tr/6/X2594AZ_24SM_WT32_01_01.jpg',
               ),
             ),
             SizedBox(height: 4.h),

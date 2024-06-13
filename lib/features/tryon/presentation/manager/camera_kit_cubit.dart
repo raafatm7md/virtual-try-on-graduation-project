@@ -24,8 +24,9 @@ class CameraKitCubit extends Cubit<CameraKitState> with CameraKitFlutterEvents {
   Future<void> openCameraKit() async {
     try {
       await _cameraKitFlutterImpl.openCameraKit(
-          groupIds: ['3294879e-e5e6-457b-9b29-7fd204bbaeb1'],
-          isHideCloseButton: false);
+        groupIds: ['3294879e-e5e6-457b-9b29-7fd204bbaeb1'],
+        isHideCloseButton: false,
+      );
     } on PlatformException {
       log("Failed to open camera");
     }
