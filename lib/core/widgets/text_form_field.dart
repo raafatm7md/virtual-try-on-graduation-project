@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,23 +28,20 @@ class AppTextFormField extends StatelessWidget {
           style: Theme.of(context).textTheme.titleSmall,
         ),
         const SizedBox(height: 2.0),
-        SizedBox(
-          height: max(50.h, 50.w),
-          child: TextFormField(
-            obscureText: isPassword,
-            controller: fieldController,
-            keyboardType: inputType,
-            decoration: InputDecoration(
-              hintText: hintText,
-              hintStyle: TextStyle(fontSize: 16.sp),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              isDense: true,
-              suffixIcon: suffix,
-              // fillColor: Color(0xFFF1F1F1),
-              // filled: true,
+        TextFormField(
+          obscureText: isPassword,
+          controller: fieldController,
+          keyboardType: inputType,
+          decoration: InputDecoration(
+            hintText: hintText,
+            hintStyle: TextStyle(fontSize: 16.sp),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8.0),
             ),
+            contentPadding: EdgeInsetsDirectional.all(15.w),
+            suffixIcon: suffix,
+            // fillColor: Color(0xFFF1F1F1),
+            // filled: true,
           ),
         ),
       ],

@@ -9,8 +9,10 @@ final appTheme = ThemeData(
     textTheme: TextTheme(
         titleLarge: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.bold),
         titleSmall: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
+    scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
       centerTitle: true,
+      backgroundColor: Colors.white,
       surfaceTintColor: Colors.white,
       titleTextStyle: TextStyle(
           fontSize: 26.sp, fontWeight: FontWeight.bold, color: Colors.black),
