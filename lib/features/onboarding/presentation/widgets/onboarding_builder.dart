@@ -18,7 +18,6 @@ class OnBoardingItemsBuilder extends StatelessWidget {
             OnBoardingItem(context, boardingItem: boardingList[index]),
         itemCount: boardingList.length,
         onPageChanged: (index) {
-          // Update the currentPage when the page changes
           OnboardingCubit.get(context).updateCurrentPage(index);
         },
       ),
