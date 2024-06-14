@@ -1,6 +1,7 @@
 import 'package:TryOn/core/constants/colors.dart';
+import 'package:TryOn/core/constants/icons.dart';
 import 'package:TryOn/core/widgets/product_image.dart';
-import 'package:TryOn/core/widgets/rating_stars.dart';
+import 'package:TryOn/features/cart/presentation/widgets/cart_item_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,44 +33,53 @@ class CartItem extends StatelessWidget {
             ),
             SizedBox(width: 20.w),
             Expanded(
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  'DeFacto',
-                  style: TextStyle(fontSize: 14.sp, color: AppColors.grey),
-                ),
-                Text(
-                  'Polo T-Shirt',
-                  style:
-                      TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      '50 \$',
-                      style: TextStyle(
-                          fontSize: 18.sp, fontWeight: FontWeight.bold),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          'DeFacto',
+                          style:
+                              TextStyle(fontSize: 14.sp, color: AppColors.grey),
+                        ),
+                        Text(
+                          'Polo T-Shirt',
+                          style: TextStyle(
+                              fontSize: 20.sp, fontWeight: FontWeight.w500),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          '50 \$',
+                          style: TextStyle(
+                              fontSize: 18.sp, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
-                    const Spacer(),
-                    const RatingStars(
-                      rating: 3.5,
-                    ),
-                    const Text('(10)'),
-                  ],
-                )
-              ],
-            )),
-            IconButton(
-              icon: Icon(
-                Icons.close,
-                color: Colors.grey,
-                size: 26.sp,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: SizedBox(
+                          height: 24.sp,
+                          width: 24.sp,
+                          child: CustomIcons.trash,
+                        ),
+                      ),
+                      CartItemCounter(
+                        height: 35.h,
+                        width: 130.w,
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              onPressed: () {},
             ),
           ],
         ),

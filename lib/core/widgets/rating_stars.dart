@@ -38,7 +38,7 @@ class RatingStars extends StatelessWidget {
                   clipper: _Clipper(part: partNumber),
                   child: Icon(
                     Icons.star,
-                    color: Colors.grey,
+                    color: Colors.grey[400],
                     size: size,
                   ),
                 ),
@@ -50,7 +50,7 @@ class RatingStars extends StatelessWidget {
         starsList.add(
           Icon(
             Icons.star,
-            color: Colors.grey,
+            color: Colors.grey[400],
             size: size,
           ),
         );
