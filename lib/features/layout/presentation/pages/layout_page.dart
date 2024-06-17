@@ -25,7 +25,12 @@ class LayoutPage extends StatelessWidget {
               title: Text(cubit.titles[cubit.currentIndex]),
               actions: [
                 IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.search_outlined))
+                  onPressed: () => Navigator.pushNamed(context, '/search'),
+                  icon: Icon(
+                    Icons.search_outlined,
+                    size: 28.sp,
+                  ),
+                )
               ],
             ),
             body: Padding(

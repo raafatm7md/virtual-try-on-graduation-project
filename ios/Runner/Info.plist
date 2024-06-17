@@ -31,8 +31,6 @@
 		<key>UISupportedInterfaceOrientations</key>
 		<array>
 			<string>UIInterfaceOrientationPortrait</string>
-			<string>UIInterfaceOrientationLandscapeLeft</string>
-			<string>UIInterfaceOrientationLandscapeRight</string>
 		</array>
 		<key>UISupportedInterfaceOrientations~ipad</key>
 		<array>
@@ -46,9 +44,9 @@
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
 		<key>UIStatusBarHidden</key>
-		<true/>
-		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false/>
+		<key>UIViewControllerBasedStatusBarAppearance</key>
+		<true/>
 		<key>NSCameraUsageDescription</key>
         <string>app need camera permission for showing AR camera</string>
         <key>NSMicrophoneUsageDescription</key>

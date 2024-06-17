@@ -37,7 +37,7 @@ class CartScreen extends StatelessWidget {
         SizedBox(height: 10.h),
         AppButton(
           text: 'Check Out',
-          onPressed: () {},
+          onPressed: () => Navigator.pushNamed(context, '/checkout'),
         ),
         SizedBox(height: 10.h)
       ],
