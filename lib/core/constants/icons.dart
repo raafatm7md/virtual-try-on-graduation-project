@@ -23,4 +23,6 @@ class CustomIcons {
   static SvgPicture password = SvgPicture.asset('assets/icons/password.svg');
 
   static SvgPicture trash = SvgPicture.asset('assets/icons/trash.svg');
+
+  static SvgPicture emoji = SvgPicture.asset('assets/icons/emoji.svg');
 }
