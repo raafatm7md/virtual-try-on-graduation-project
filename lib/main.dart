@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) => MaterialApp(
-          title: 'TryOn',
+          title: 'Prova 3D',
           debugShowCheckedModeBanner: false,
           theme: appTheme,
           initialRoute: '/',

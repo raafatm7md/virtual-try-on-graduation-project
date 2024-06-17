@@ -3,7 +3,7 @@
     "short_name": "TryOn",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#hexcode",
+    "background_color": "#ffffff",
     "theme_color": "#hexcode",
     "description": "Virtually Try-On OutFits",
     "orientation": "portrait-primary",
