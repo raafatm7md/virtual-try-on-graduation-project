@@ -10,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'config/firebase/firebase_options.dart';
 import 'config/theme/app_theme.dart';
+import 'core/utilits/functions/api_service.dart';
 
 Future<void> main() async {
   setupServiceLocator();
@@ -17,6 +18,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  ApiService.init();
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
