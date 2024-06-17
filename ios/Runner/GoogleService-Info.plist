@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.tryOn</string>
+	<string>com.magic.prova</string>
 	<key>PROJECT_ID</key>
 	<string>try-on-graduation-project</string>
 	<key>STORAGE_BUCKET</key>

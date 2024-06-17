@@ -8,11 +8,11 @@ class LogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 75.h, bottom: 30.h),
+      padding: EdgeInsets.only(top: 75.h, bottom: 20.h),
       child: Image(
         image: const AssetImage(AppImageAsset.logo),
-        height: 170.h,
-        width: 170.w,
+        height: 200.r,
+        width: 200.r,
       ),
     );
   }

@@ -1,4 +1,4 @@
-package com.example.try_on
+package com.magic.prova
 
 import io.flutter.embedding.android.FlutterActivity
 

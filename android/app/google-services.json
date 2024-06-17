@@ -9,7 +9,26 @@
       "client_info": {
         "mobilesdk_app_id": "1:757018841154:android:d937d2355b128fa85e5ddb",
         "android_client_info": {
-          "package_name": "com.example.try_on"
+          "package_name": "com.magic.prova"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0A60ON2TPB7Zrkgf9NU-nosqiPlKSSyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757018841154:android:328aff77a636c6615e5ddb",
+        "android_client_info": {
+          "package_name": "com.magic.prova"
         }
       },
       "oauth_client": [],
