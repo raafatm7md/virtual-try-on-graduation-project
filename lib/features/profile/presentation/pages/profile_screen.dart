@@ -1,6 +1,7 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/icons.dart';
 import 'package:TryOn/core/constants/images.dart';
+import 'package:TryOn/core/utilits/functions/shared_pref.dart';
 import 'package:TryOn/features/profile/presentation/widgets/profile_data_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,6 +65,24 @@ class ProfileScreen extends StatelessWidget {
           icon: CustomIcons.password,
           type: 'Change Password',
           data: '•••••••••••',
+        ),
+        SizedBox(height: 20.h),
+        TextButton(
+          onPressed: () {
+            CacheHelper.removeData('accessToken');
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              '/',
+              (route) => false,
+            );
+          },
+          child: Text(
+            'Logot',
+            style: TextStyle(
+                color: Colors.red,
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w600),
+          ),
         ),
       ],
     );

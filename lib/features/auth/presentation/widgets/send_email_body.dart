@@ -1,3 +1,4 @@
+import 'package:TryOn/core/utilits/functions/is_email.dart';
 import 'package:TryOn/core/widgets/app_button.dart';
 import 'package:TryOn/core/widgets/text_form_field.dart';
 import 'package:TryOn/features/auth/presentation/manager/forgot_password/forgot_password_cubit.dart';
@@ -29,6 +30,17 @@ class SendEmailBody extends StatelessWidget {
                   fieldController: _emailController,
                   inputType: TextInputType.emailAddress,
                   hintText: 'Enter your Email',
+                  validator: (value) {
+                    if (isEmail(value!)) {
+                      return null;
+                    }
+                    return 'Please enter a valid email';
+                  },
+                  onSubmit: (value) {
+                    if (_formKey.currentState!.validate()) {
+                      ForgotPasswordCubit.get(context).sendEmail();
+                    }
+                  },
                 )
               ],
             )),
@@ -36,7 +48,9 @@ class SendEmailBody extends StatelessWidget {
         AppButton(
           text: 'SEND',
           onPressed: () {
-            ForgotPasswordCubit.get(context).sendEmail();
+            if (_formKey.currentState!.validate()) {
+              ForgotPasswordCubit.get(context).sendEmail();
+            }
           },
         )
       ],

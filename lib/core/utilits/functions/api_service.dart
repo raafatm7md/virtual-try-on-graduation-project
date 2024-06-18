@@ -20,7 +20,7 @@ class ApiService {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': token ?? CacheHelper.getData('access_token'),
+      'Authorization': token ?? CacheHelper.getData('accessToken'),
     };
     return await dio.get(endPoint, queryParameters: query);
   }
@@ -33,7 +33,7 @@ class ApiService {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': token ?? CacheHelper.getData('access_token'),
+      'Authorization': token ?? CacheHelper.getData('accessToken'),
     };
     return await dio.post(url, queryParameters: query, data: data);
   }
@@ -46,7 +46,7 @@ class ApiService {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': token ?? CacheHelper.getData('access_token'),
+      'Authorization': token ?? CacheHelper.getData('accessToken'),
     };
     return await dio.put(url, queryParameters: query, data: data);
   }
@@ -56,7 +56,7 @@ class ApiService {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': token ?? CacheHelper.getData('access_token'),
+      'Authorization': token ?? CacheHelper.getData('accessToken'),
     };
     return await dio.delete(url, queryParameters: query);
   }

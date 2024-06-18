@@ -8,6 +8,8 @@ class AppTextFormField extends StatelessWidget {
   final String hintText;
   final bool isPassword;
   final Widget? suffix;
+  final String? Function(String?)? validator;
+  final void Function(String)? onSubmit;
   const AppTextFormField({
     super.key,
     required this.type,
@@ -16,6 +18,8 @@ class AppTextFormField extends StatelessWidget {
     required this.hintText,
     this.isPassword = false,
     this.suffix,
+    this.validator,
+    this.onSubmit,
   });
 
   @override
@@ -32,6 +36,8 @@ class AppTextFormField extends StatelessWidget {
           obscureText: isPassword,
           controller: fieldController,
           keyboardType: inputType,
+          validator: validator,
+          onFieldSubmitted: onSubmit,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: TextStyle(fontSize: 16.sp),
