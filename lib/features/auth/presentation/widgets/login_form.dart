@@ -53,7 +53,7 @@ class LoginForm extends StatelessWidget {
                         ),
                       ),
                       validator: (value) {
-                        if (value!.length < 4) {
+                        if (value!.length < 8) {
                           return 'Please enter your password';
                         }
                         return null;

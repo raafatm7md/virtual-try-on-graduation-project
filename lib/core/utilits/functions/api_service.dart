@@ -28,7 +28,7 @@ class ApiService {
   static Future<Response> post(
       {required String url,
       Map<String, dynamic>? query,
-      required Map<String, dynamic>? data,
+      required Object? data,
       String? token}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:TryOn/core/utilits/functions/shared_pref.dart';
 import 'package:TryOn/core/utilits/functions/toast_message.dart';
 import 'package:TryOn/features/auth/data/repositories/login_repo.dart';
@@ -18,10 +16,9 @@ class LoginCubit extends Cubit<LoginState> {
     var response =
         await LoginRepo.login(username: username.trim(), password: password);
     response.fold((failure) {
-      showToast(msg: failure.errMessage, bg: Colors.red);
       emit(LoginFailure());
+      showToast(msg: failure.errMessage, bg: Colors.red);
     }, (success) {
-      log(success.access!);
       CacheHelper.saveData('accessToken', 'Bearer ${success.access}');
       emit(LoginSuccess());
     });
