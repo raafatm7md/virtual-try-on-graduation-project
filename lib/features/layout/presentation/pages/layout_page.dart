@@ -1,8 +1,10 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/icons.dart';
+import 'package:TryOn/core/widgets/custom_loading.dart';
 import 'package:TryOn/features/layout/presentation/manager/app_cubit.dart';
 import 'package:TryOn/features/layout/presentation/widgets/custom_bottom_bar.dart';
 import 'package:TryOn/features/tryon/presentation/manager/camera_kit_cubit.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,9 +35,22 @@ class LayoutPage extends StatelessWidget {
                 )
               ],
             ),
-            body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.w),
-              child: cubit.screens[cubit.currentIndex],
+            body: StreamBuilder(
+              stream: Connectivity().onConnectivityChanged,
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<ConnectivityResult>> snapshot) {
+                if (snapshot.hasData) {
+                  List<ConnectivityResult>? result = snapshot.data;
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15.w),
+                    child: result!.contains(ConnectivityResult.none)
+                        ? Text('data')
+                        : cubit.screens[cubit.currentIndex],
+                  );
+                } else {
+                  return const CustomLoadingIndicator();
+                }
+              },
             ),
             bottomNavigationBar: CustomBottomBar(
               items: [

@@ -38,12 +38,14 @@ class SignUpCubit extends Cubit<SignUpState> {
       phone: phone,
       password: password,
       passwordConfirm: passwordConfirm,
+      profileImage: profileImage,
     );
     response.fold((failure) {
       emit(SignUpFailure());
       showToast(msg: failure.errMessage, bg: Colors.red);
     }, (success) {
       CacheHelper.saveData('accessToken', 'Bearer ${success.access}');
+      CacheHelper.saveData('refreshToken', success.refresh);
       emit(SignUpSuccess());
     });
   }

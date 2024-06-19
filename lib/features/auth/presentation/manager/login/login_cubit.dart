@@ -20,6 +20,7 @@ class LoginCubit extends Cubit<LoginState> {
       showToast(msg: failure.errMessage, bg: Colors.red);
     }, (success) {
       CacheHelper.saveData('accessToken', 'Bearer ${success.access}');
+      CacheHelper.saveData('refreshToken', success.refresh);
       emit(LoginSuccess());
     });
   }
