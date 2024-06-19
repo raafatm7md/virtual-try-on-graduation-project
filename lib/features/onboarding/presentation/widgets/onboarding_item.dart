@@ -32,7 +32,7 @@ class OnBoardingItem extends StatelessWidget {
               const SizedBox(height: 8.0),
               Text(boardingItem.body,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 19.sp, color: AppColors.grey)),
+                  style: TextStyle(fontSize: 18.sp, color: AppColors.grey)),
             ],
           ),
         ),
