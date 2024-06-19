@@ -3,6 +3,8 @@ import 'package:TryOn/core/constants/icons.dart';
 import 'package:TryOn/core/widgets/custom_loading.dart';
 import 'package:TryOn/features/layout/presentation/manager/app_cubit.dart';
 import 'package:TryOn/features/layout/presentation/widgets/custom_bottom_bar.dart';
+import 'package:TryOn/features/layout/presentation/widgets/no_connection.dart';
+import 'package:TryOn/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:TryOn/features/tryon/presentation/manager/camera_kit_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +16,11 @@ class LayoutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AppCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => AppCubit()),
+        BlocProvider(create: (context) => ProfileCubit()..getUserData()),
+      ],
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {
           if (state is StartTryOn) CameraKitCubit.get(context).openCameraKit();
@@ -44,7 +49,7 @@ class LayoutPage extends StatelessWidget {
                   return Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15.w),
                     child: result!.contains(ConnectivityResult.none)
-                        ? Text('data')
+                        ? const NoConnectionWidget()
                         : cubit.screens[cubit.currentIndex],
                   );
                 } else {

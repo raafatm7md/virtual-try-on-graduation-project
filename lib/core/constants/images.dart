@@ -8,4 +8,5 @@ class AppImageAsset {
   static const String cash = '$root/cash.png';
   static const String mastercard = '$root/mastercard.png';
   static const String bags = '$root/bags.png';
+  static const String noConnection = '$root/no_connection.png';
 }
