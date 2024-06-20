@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD0A60ON2TPB7Zrkgf9NU-nosqiPlKSSyM',
-    appId: '1:757018841154:android:d937d2355b128fa85e5ddb',
+    appId: '1:757018841154:android:328aff77a636c6615e5ddb',
     messagingSenderId: '757018841154',
     projectId: 'try-on-graduation-project',
     storageBucket: 'try-on-graduation-project.appspot.com',
@@ -63,19 +63,19 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCQgCiPKCjCWtxhrlKuL6LHfcltmC4WviM',
-    appId: '1:757018841154:ios:91ede419fb504b2a5e5ddb',
+    appId: '1:757018841154:ios:a167091f0c8096905e5ddb',
     messagingSenderId: '757018841154',
     projectId: 'try-on-graduation-project',
     storageBucket: 'try-on-graduation-project.appspot.com',
-    iosBundleId: 'com.example.tryOn',
+    iosBundleId: 'com.magic.prova',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyCQgCiPKCjCWtxhrlKuL6LHfcltmC4WviM',
-    appId: '1:757018841154:ios:076a9642882144e55e5ddb',
+    appId: '1:757018841154:ios:eed67b7f01b32f125e5ddb',
     messagingSenderId: '757018841154',
     projectId: 'try-on-graduation-project',
     storageBucket: 'try-on-graduation-project.appspot.com',
-    iosBundleId: 'com.example.tryOn.RunnerTests',
+    iosBundleId: 'com.magic.prova.RunnerTests',
   );
 }

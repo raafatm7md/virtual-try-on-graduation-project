@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'config/firebase/firebase_options.dart';
 import 'config/theme/app_theme.dart';
 import 'core/utilits/functions/api_service.dart';
+import 'core/utilits/functions/shared_pref.dart';
 
 Future<void> main() async {
   setupServiceLocator();
@@ -18,6 +19,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await CacheHelper.init();
   ApiService.init();
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) => MaterialApp(
-          title: 'TryOn',
+          title: 'Prova 3D',
           debugShowCheckedModeBanner: false,
           theme: appTheme,
           initialRoute: '/',

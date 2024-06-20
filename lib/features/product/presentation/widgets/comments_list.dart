@@ -1,12 +1,15 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/images.dart';
 import 'package:TryOn/core/widgets/rating_stars.dart';
+import 'package:TryOn/features/product/data/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CommentsList extends StatelessWidget {
+  final List<Comment>? comments;
   const CommentsList({
     super.key,
+    this.comments,
   });
 
   @override
@@ -31,29 +34,29 @@ class CommentsList extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Raafat Mohamed',
+                      comments![index].user!,
                       style: TextStyle(
                           fontWeight: FontWeight.w500, fontSize: 18.sp),
                     ),
-                    const RatingStars(rating: 3.5),
+                     RatingStars(rating: comments![index].sentiment! * 5.0),
                   ],
                 )
               ],
             ),
-            SizedBox(height: 3.h),
-            const Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-              style: TextStyle(color: AppColors.grey),
+            SizedBox(height: 5.h),
+            Text(
+              comments![index].text!,
+              style: TextStyle(color: AppColors.grey, fontSize: 16.sp),
             ),
             SizedBox(height: 5.h),
             Text(
-              'December 10, 2024',
+              '${comments![index].createdAt!.day}-${comments![index].createdAt!.month}-${comments![index].createdAt!.year} ${comments![index].createdAt!.hour}:${comments![index].createdAt!.minute}',
               style: TextStyle(fontSize: 14.sp, color: AppColors.grey),
             ),
           ],
         ),
       ),
-      itemCount: 4,
+      itemCount: comments?.length,
     );
   }
 }

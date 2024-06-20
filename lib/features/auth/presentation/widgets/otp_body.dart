@@ -1,6 +1,6 @@
 import 'package:TryOn/core/constants/colors.dart';
+import 'package:TryOn/core/utilits/functions/toast_message.dart';
 import 'package:TryOn/core/widgets/app_button.dart';
-import 'package:TryOn/features/auth/presentation/manager/forgot_password/forgot_password_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,7 +33,7 @@ class OtpBody extends StatelessWidget {
                   enabledBorderColor: AppColors.grey,
                   onSubmit: (String verificationCode) {
                     _otpController.text = verificationCode;
-                  }, // end onSubmit
+                  },
                 ),
               ],
             )),
@@ -41,7 +41,7 @@ class OtpBody extends StatelessWidget {
         AppButton(
           text: 'SEND',
           onPressed: () {
-            ForgotPasswordCubit.get(context).sendOtp();
+            showToast(msg: 'Invalid OTP', bg: Colors.red);
           },
         )
       ],

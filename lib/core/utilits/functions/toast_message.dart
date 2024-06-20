@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-showToast(String msg, Color bg) => Fluttertoast.showToast(
+showToast({required String msg, required Color bg}) => Fluttertoast.showToast(
     msg: msg,
     toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.BOTTOM,

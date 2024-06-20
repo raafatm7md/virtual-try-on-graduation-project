@@ -5,7 +5,7 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
-		<string>TryOn</string>
+		<string>Prova 3D</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
 		<key>CFBundleIdentifier</key>
@@ -48,8 +48,10 @@
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<true/>
 		<key>NSCameraUsageDescription</key>
-        <string>app need camera permission for showing AR camera</string>
-        <key>NSMicrophoneUsageDescription</key>
-        <string>app need microphone permission for recording a video</string>
+		<string>Prova 3D need camera permission for showing AR camera</string>
+		<key>NSMicrophoneUsageDescription</key>
+		<string>Prova 3D need microphone permission for recording a video</string>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>Prova 3D need photo library permission for selecting photos</string>
 	</dict>
 </plist>

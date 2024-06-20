@@ -27,6 +27,8 @@ dependencies:
   carousel_slider: ^4.2.1
   u_credit_card: ^1.3.1
   dartz: ^0.10.1
+  image_picker: ^1.1.2
+  connectivity_plus: ^6.0.3
 
 dev_dependencies:
   flutter_test:
@@ -34,30 +36,29 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.4.0
+  rename_app: ^1.5.0
+  change_app_package_name: ^1.2.0
 
 flutter_launcher_icons:
-  android: true
-  ios: true
-  image_path: "assets/images/logo/logo-noname.png"
+  android: false
+  ios: false
+  image_path: "assets/images/logo/logo.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
-    image_path: "assets/images/logo/logo-noname.png"
+    image_path: "assets/images/logo/logo.png"
     background_color: "#ffffff"
   windows:
     generate: true
-    image_path: "assets/images/logo/logo-noname.png"
+    image_path: "assets/images/logo/logo.png"
     icon_size: 48 # min:48, max:256, default: 48
   macos:
     generate: true
-    image_path: "assets/images/logo/logo-noname.png"
+    image_path: "assets/images/logo/logo.png"
 
 flutter_native_splash:
   color: "#ffffff"
-  image: "assets/images/logo/logo-padding.png"
-  android_12:
-    color: "#ffffff"
-    image: "assets/images/logo/logo-padding.png"
+  image: "assets/images/logo/logo.png"
   fullscreen: true
 
 flutter:
