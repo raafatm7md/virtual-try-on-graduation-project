@@ -15,13 +15,16 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   Future<void> getUserData() async {
     var response = await ProfileRepo.getUserData();
-    response.fold((failure) {
-      emit(ProfileGetDataError());
-      showToast(msg: failure.errMessage, bg: Colors.red);
-    }, (userData) {
-      user = userData;
-      emit(ProfileGetDataSuccess());
-    });
+    response.fold(
+      (failure) {
+        emit(ProfileGetDataError());
+        showToast(msg: failure.errMessage, bg: Colors.red);
+      },
+      (userData) {
+        user = userData;
+        emit(ProfileGetDataSuccess());
+      },
+    );
   }
 
   Future<void> logout() async {

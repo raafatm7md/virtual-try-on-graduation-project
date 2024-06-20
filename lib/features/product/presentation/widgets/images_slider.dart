@@ -3,8 +3,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class ProductImagesSlider extends StatelessWidget {
+  final List<String> images;
   const ProductImagesSlider({
     super.key,
+    required this.images,
   });
 
   @override
@@ -12,14 +14,7 @@ class ProductImagesSlider extends StatelessWidget {
     return Container(
       color: Colors.grey[200],
       child: CarouselSlider(
-        items: [
-          'https://dfcdn.defacto.com.tr/6/X2594AZ_24SM_WT32_01_01.jpg',
-          'https://dfcdn.defacto.com.tr/6/X2594AZ_24SM_WT32_02_01.jpg',
-          'https://dfcdn.defacto.com.tr/6/X2594AZ_24SM_WT32_03_01.jpg',
-          'https://dfcdn.defacto.com.tr/6/X2594AZ_24SM_WT32_04_01.jpg',
-          'https://dfcdn.defacto.com.tr/6/X2594AZ_24SM_WT32_05_01.jpg',
-          'https://dfcdn.defacto.com.tr/6/X2594AZ_24SM_WT32_06_01.jpg',
-        ]
+        items: images
             .map((image) => CachedNetworkImage(
                   imageUrl: image,
                   fit: BoxFit.cover,

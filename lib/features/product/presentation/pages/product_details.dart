@@ -4,6 +4,7 @@ import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/constants.dart';
 import 'package:TryOn/core/constants/icons.dart';
 import 'package:TryOn/core/widgets/app_button.dart';
+import 'package:TryOn/features/product/data/models/product.dart';
 import 'package:TryOn/features/product/presentation/widgets/available_colors.dart';
 import 'package:TryOn/features/product/presentation/widgets/comments_list.dart';
 import 'package:TryOn/features/product/presentation/widgets/images_slider.dart';
@@ -15,6 +16,8 @@ class ProductDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Product product =
+        ModalRoute.of(context)?.settings.arguments as Product;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -23,13 +26,15 @@ class ProductDetailsScreen extends StatelessWidget {
           },
           icon: backIcon,
         ),
-        title: const Text('Polo T-Shirt'),
+        title: Text(product.name!),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ProductImagesSlider(),
+            ProductImagesSlider(
+              images: [product.image!],
+            ),
             Padding(
               padding: EdgeInsetsDirectional.symmetric(
                   horizontal: 20.w, vertical: 12.h),
@@ -43,12 +48,12 @@ class ProductDetailsScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Polo T-Shirt',
+                              product.name!,
                               style: TextStyle(
                                   fontSize: 26.sp, fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'DeFacto',
+                              product.brand!,
                               style: TextStyle(
                                   fontSize: 16.sp, color: AppColors.grey),
                             ),
@@ -56,7 +61,7 @@ class ProductDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '50 \$',
+                        '${product.price} \$',
                         style: TextStyle(
                             fontSize: 24.sp, fontWeight: FontWeight.bold),
                       ),
@@ -149,7 +154,12 @@ class ProductDetailsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const CommentsList(),
+            product.comments!.isNotEmpty
+                ? CommentsList(comments: product.comments)
+                : const Padding(
+                    padding: EdgeInsets.all(50.0),
+                    child: Center(child: Text('No reviews yet!')),
+                  ),
           ],
         ),
       ),

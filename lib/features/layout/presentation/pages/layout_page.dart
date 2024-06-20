@@ -4,6 +4,7 @@ import 'package:TryOn/core/widgets/custom_loading.dart';
 import 'package:TryOn/features/layout/presentation/manager/app_cubit.dart';
 import 'package:TryOn/features/layout/presentation/widgets/custom_bottom_bar.dart';
 import 'package:TryOn/features/layout/presentation/widgets/no_connection.dart';
+import 'package:TryOn/features/product/presentation/manager/products_cubit.dart';
 import 'package:TryOn/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:TryOn/features/tryon/presentation/manager/camera_kit_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -19,7 +20,9 @@ class LayoutPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AppCubit()),
-        BlocProvider(create: (context) => ProfileCubit()..getUserData()),
+        BlocProvider(
+            create: (context) => ProfileCubit()..getUserData(), lazy: false),
+        BlocProvider(create: (context) => ProductsCubit()..getAllProducts()),
       ],
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {

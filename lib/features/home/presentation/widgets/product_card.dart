@@ -1,17 +1,20 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/widgets/product_image.dart';
+import 'package:TryOn/features/product/data/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductCard extends StatelessWidget {
+  final Product product;
   const ProductCard({
     super.key,
+    required this.product,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, '/productDetails'),
+      onTap: () => Navigator.pushNamed(context, '/productDetails', arguments: product),
       splashColor: Colors.transparent,
       child: Card(
         shape: RoundedRectangleBorder(
@@ -23,10 +26,9 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(
+            Expanded(
               child: ProductImage(
-                url:
-                    'https://dfcdn.defacto.com.tr/6/X2594AZ_24SM_WT32_01_01.jpg',
+                url: product.image!,
               ),
             ),
             SizedBox(height: 4.h),
@@ -35,18 +37,18 @@ class ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'DeFacto',
+                  product.brand!,
                   style: TextStyle(fontSize: 14.sp, color: AppColors.grey),
                 ),
                 Text(
-                  '50 \$',
+                  '${product.price} \$',
                   style:
                       TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
             Text(
-              'Polo T-Shirt',
+              product.name!,
               style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,

@@ -5,11 +5,13 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class ProductsRepo {
-  static Future<Either<Failure, Product>> getMenProducts(
-      {required String username, required String password}) async {
+  static Future<Either<Failure, List<Product>>> getMenProducts() async {
     try {
+      List<Product> menProducts = [];
       var response = await ApiService.get(endPoint: '/products?gender=M');
-      Product menProducts = Product.fromJson(response.data);
+      response.data.forEach((product) {
+        menProducts.add(Product.fromJson(product));
+      });
       return right(menProducts);
     } on Exception catch (e) {
       if (e is DioException) return left(ServerFailure.fromDioException(e));
@@ -17,11 +19,13 @@ class ProductsRepo {
     }
   }
 
-  static Future<Either<Failure, Product>> getWomenProducts(
-      {required String username, required String password}) async {
+  static Future<Either<Failure, List<Product>>> getWomenProducts() async {
     try {
+      List<Product> womenProducts = [];
       var response = await ApiService.get(endPoint: '/products?gender=F');
-      Product womenProducts = Product.fromJson(response.data);
+      response.data.forEach((product) {
+        womenProducts.add(Product.fromJson(product));
+      });
       return right(womenProducts);
     } on Exception catch (e) {
       if (e is DioException) return left(ServerFailure.fromDioException(e));
@@ -29,11 +33,13 @@ class ProductsRepo {
     }
   }
 
-  static Future<Either<Failure, Product>> getKidsProducts(
-      {required String username, required String password}) async {
+  static Future<Either<Failure, List<Product>>> getKidsProducts() async {
     try {
+      List<Product> kidsProducts = [];
       var response = await ApiService.get(endPoint: '/products?gender=K');
-      Product kidsProducts = Product.fromJson(response.data);
+      response.data.forEach((product) {
+        kidsProducts.add(Product.fromJson(product));
+      });
       return right(kidsProducts);
     } on Exception catch (e) {
       if (e is DioException) return left(ServerFailure.fromDioException(e));

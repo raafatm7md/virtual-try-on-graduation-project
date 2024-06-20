@@ -13,9 +13,9 @@ class Product {
   String? description;
   String? price;
   int? quantity;
-  Gender? gender;
-  Brand? brand;
-  Size? size;
+  String? gender;
+  String? brand;
+  String? size;
   String? color;
   String? image;
   String? lensId;
@@ -49,9 +49,9 @@ class Product {
         description: json["description"],
         price: json["price"],
         quantity: json["quantity"],
-        gender: genderValues.map[json["gender"]]!,
-        brand: brandValues.map[json["brand"]]!,
-        size: sizeValues.map[json["size"]]!,
+        gender: json["gender"],
+        brand: json["brand"],
+        size: json["size"],
         color: json["color"],
         image: json["image"],
         lensId: json["lens_id"],
@@ -68,9 +68,9 @@ class Product {
         "description": description,
         "price": price,
         "quantity": quantity,
-        "gender": genderValues.reverse[gender],
-        "brand": brandValues.reverse[brand],
-        "size": sizeValues.reverse[size],
+        "gender": gender,
+        "brand": brand,
+        "size": size,
         "color": color,
         "image": image,
         "lens_id": lensId,
@@ -78,11 +78,6 @@ class Product {
         "category": category,
       };
 }
-
-enum Brand { DEFACTO, H_M, ZARA }
-
-final brandValues = EnumValues(
-    {"defacto": Brand.DEFACTO, "H&m": Brand.H_M, "zara": Brand.ZARA});
 
 class Comment {
   int? id;
@@ -120,24 +115,4 @@ class Comment {
         "user": user,
         "sentiment": sentiment,
       };
-}
-
-enum Gender { M }
-
-final genderValues = EnumValues({"M": Gender.M});
-
-enum Size { L }
-
-final sizeValues = EnumValues({"L": Size.L});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    reverseMap = map.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
 }
