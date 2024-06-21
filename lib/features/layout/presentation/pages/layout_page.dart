@@ -12,6 +12,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class LayoutPage extends StatefulWidget {
   const LayoutPage({super.key});
@@ -41,6 +42,8 @@ class _LayoutPageState extends State<LayoutPage> {
           if (state is StartTryOn) CameraKitCubit.get(context).openCameraKit();
         },
         builder: (context, state) {
+          RefreshController refreshController =
+              RefreshController(initialRefresh: false);
           var cubit = AppCubit.get(context);
           return Scaffold(
             appBar: AppBar(
@@ -65,7 +68,18 @@ class _LayoutPageState extends State<LayoutPage> {
                     padding: EdgeInsets.symmetric(horizontal: 15.w),
                     child: result!.contains(ConnectivityResult.none)
                         ? const NoConnectionWidget()
-                        : cubit.screens[cubit.currentIndex],
+                        : SmartRefresher(
+                            controller: refreshController,
+                            header: const MaterialClassicHeader(),
+                            onRefresh: () async {
+                              ProductsCubit.get(context).getAllProducts();
+                              ProfileCubit.get(context).getUserData();
+                              WishlistCubit.get(context).getWishlist();
+                              await Future.delayed(
+                                  const Duration(milliseconds: 1000));
+                              refreshController.refreshCompleted();
+                            },
+                            child: cubit.screens[cubit.currentIndex]),
                   );
                 } else {
                   return const CustomLoadingIndicator();

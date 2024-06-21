@@ -34,7 +34,10 @@ class ProfileScreen extends StatelessWidget {
                           Text(
                             user.userName!,
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18.sp),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24.sp,
+                              letterSpacing: 1,
+                            ),
                           ),
                           Text(
                             '@${user.userName!}',

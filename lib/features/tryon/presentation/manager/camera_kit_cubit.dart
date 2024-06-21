@@ -33,6 +33,18 @@ class CameraKitCubit extends Cubit<CameraKitState> with CameraKitFlutterEvents {
     }
   }
 
+  Future<void> openSingleLens(String lensId) async {
+    try {
+      await _cameraKitFlutterImpl.openCameraKitWithSingleLens(
+        groupId: '3294879e-e5e6-457b-9b29-7fd204bbaeb1',
+        lensId: lensId,
+        isHideCloseButton: false,
+      );
+    } on PlatformException {
+      log("Failed to open camera");
+    }
+  }
+
   @override
   Future<void> onCameraKitResult(Map<dynamic, dynamic> result) async {
     if (result["type"] == 'image') {

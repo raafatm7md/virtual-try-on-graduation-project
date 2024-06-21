@@ -8,6 +8,7 @@ import 'package:TryOn/features/product/data/models/product.dart';
 import 'package:TryOn/features/product/presentation/widgets/available_colors.dart';
 import 'package:TryOn/features/product/presentation/widgets/comments_list.dart';
 import 'package:TryOn/features/product/presentation/widgets/images_slider.dart';
+import 'package:TryOn/features/tryon/presentation/manager/camera_kit_cubit.dart';
 import 'package:TryOn/features/wishlist/presentation/manager/wishlist_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -76,6 +77,8 @@ class ProductDetailsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 10.h),
+                  Text(product.description!),
                   SizedBox(height: 20.h),
                   Row(
                     children: [
@@ -119,7 +122,10 @@ class ProductDetailsScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            CameraKitCubit.get(context)
+                                .openSingleLens(product.lensId!);
+                          },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -171,7 +177,7 @@ class ProductDetailsScreen extends StatelessWidget {
             product.comments!.isNotEmpty
                 ? CommentsList(comments: product.comments)
                 : const Padding(
-                    padding: EdgeInsets.all(50.0),
+                    padding: EdgeInsets.all(40.0),
                     child: Center(child: Text('No reviews yet!')),
                   ),
           ],
