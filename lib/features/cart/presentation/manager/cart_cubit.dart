@@ -1,6 +1,5 @@
 import 'package:TryOn/core/utilits/functions/toast_message.dart';
 import 'package:TryOn/features/cart/data/repositories/cart_repo.dart';
-import 'package:TryOn/features/product/data/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +9,7 @@ class CartCubit extends Cubit<CartState> {
   CartCubit() : super(CartInitial());
   static CartCubit get(context) => BlocProvider.of(context);
 
-  List<Product>? cartProducts;
+  List<dynamic>? cartProducts;
   double totalPrice = 0;
 
   Future<void> getCart() async {
@@ -29,6 +28,37 @@ class CartCubit extends Cubit<CartState> {
     }, (price) {
       totalPrice = price;
       emit(GetCartSuccess());
+    });
+  }
+
+  Future<void> addToCart({required int productId}) async {
+    var wishlistResponse = await CartRepo.addToCart(productId: productId);
+    wishlistResponse.fold((failure) {
+      showToast(msg: failure.errMessage, bg: Colors.red);
+    }, (success) {
+      showToast(msg: 'Item added to cart', bg: Colors.green);
+      getCart();
+    });
+  }
+
+  Future<void> removeFromCart({required int productId}) async {
+    var wishlistResponse = await CartRepo.removeFromCart(productId: productId);
+    wishlistResponse.fold((failure) {
+      showToast(msg: failure.errMessage, bg: Colors.red);
+    }, (success) {
+      showToast(msg: 'Item removed from cart', bg: Colors.green);
+      getCart();
+    });
+  }
+
+  Future<void> checkout() async {
+    emit(CheckoutLoading());
+    var checkoutResponse = await CartRepo.checkout();
+    checkoutResponse.fold((failure) {
+      emit(CheckoutError());
+      showToast(msg: failure.errMessage, bg: Colors.red);
+    }, (success) {
+      emit(CheckoutSuccess());
     });
   }
 }

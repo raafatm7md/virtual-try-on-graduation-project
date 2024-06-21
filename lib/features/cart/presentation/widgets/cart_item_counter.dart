@@ -1,7 +1,10 @@
+import 'package:TryOn/features/cart/presentation/manager/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CartItemCounter extends StatelessWidget {
+  final dynamic quantity;
+  final int id;
   final double height;
   final double width;
   final double borderRadius;
@@ -9,7 +12,9 @@ class CartItemCounter extends StatelessWidget {
       {super.key,
       required this.height,
       required this.width,
-      this.borderRadius = 10});
+      this.borderRadius = 10,
+      required this.quantity,
+      required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,9 @@ class CartItemCounter extends StatelessWidget {
         children: [
           Expanded(
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                CartCubit.get(context).removeFromCart(productId: id);
+              },
               child: Container(
                   height: height,
                   decoration: BoxDecoration(
@@ -41,14 +48,16 @@ class CartItemCounter extends StatelessWidget {
           Expanded(
             child: Center(
               child: Text(
-                '1',
+                '$quantity',
                 style: TextStyle(fontSize: 18.sp),
               ),
             ),
           ),
           Expanded(
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                CartCubit.get(context).addToCart(productId: id);
+              },
               child: Container(
                   height: height,
                   decoration: BoxDecoration(

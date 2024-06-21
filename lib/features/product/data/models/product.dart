@@ -21,7 +21,7 @@ class Product {
   String? lensId;
   String? lensGroupId;
   int? category;
-  double? rating;
+  num? rating;
 
   Product({
     this.id,

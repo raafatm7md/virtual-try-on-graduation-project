@@ -18,4 +18,33 @@ class WishlistRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  static Future<Either<Failure, dynamic>> addToWishlist(
+      {required int productId}) async {
+    try {
+      var response = await ApiService.post(
+        url: '/favorites',
+        data: {
+          'product': productId,
+        },
+      );
+      return right(response.data);
+    } on Exception catch (e) {
+      if (e is DioException) return left(ServerFailure.fromDioException(e));
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  static Future<Either<Failure, dynamic>> removeFromWishlist(
+      {required int productId}) async {
+    try {
+      var response = await ApiService.delete(
+        url: '/favorites/$productId',
+      );
+      return right(response.data);
+    } on Exception catch (e) {
+      if (e is DioException) return left(ServerFailure.fromDioException(e));
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

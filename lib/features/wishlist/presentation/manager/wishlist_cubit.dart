@@ -14,13 +14,33 @@ class WishlistCubit extends Cubit<WishlistState> {
 
   Future<void> getWishlist() async {
     var wishlistResponse = await WishlistRepo.getWishlist();
-
     wishlistResponse.fold((failure) {
-      emit(GetWishlistError());
       showToast(msg: failure.errMessage, bg: Colors.red);
     }, (wishlistProducts) {
       wishlist = wishlistProducts;
       emit(GetWishlistSuccess());
+    });
+  }
+
+  Future<void> addToWishlist({required int productId}) async {
+    var wishlistResponse =
+        await WishlistRepo.addToWishlist(productId: productId);
+    wishlistResponse.fold((failure) {
+      showToast(msg: failure.errMessage, bg: Colors.red);
+    }, (success) {
+      showToast(msg: 'Item added to wishlist', bg: Colors.green);
+      getWishlist();
+    });
+  }
+
+  Future<void> removeFromWishlist({required int productId}) async {
+    var wishlistResponse =
+        await WishlistRepo.removeFromWishlist(productId: productId);
+    wishlistResponse.fold((failure) {
+      showToast(msg: failure.errMessage, bg: Colors.red);
+    }, (success) {
+      showToast(msg: 'Item removed from wishlist', bg: Colors.green);
+      getWishlist();
     });
   }
 }
