@@ -6,13 +6,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class ProfileRepo {
-  static Future<void> logout() async {
-    await ApiService.post(
-      url: '/logout',
-      data: {'refresh_token': CacheHelper.getData('refreshToken')},
-    );
-  }
-
   static Future<Either<Failure, UserData>> getUserData() async {
     try {
       var response = await ApiService.get(endPoint: '/user');
@@ -22,5 +15,23 @@ class ProfileRepo {
       if (e is DioException) return left(ServerFailure.fromDioException(e));
       return left(ServerFailure(e.toString()));
     }
+  }
+
+  static Future<void> editUserData(
+      {String? phoneNumber, String? address}) async {
+    await ApiService.post(
+      url: '/user',
+      data: {
+        'phone_number': phoneNumber,
+        'address': address,
+      },
+    );
+  }
+
+  static Future<void> logout() async {
+    await ApiService.post(
+      url: '/logout',
+      data: {'refresh_token': CacheHelper.getData('refreshToken')},
+    );
   }
 }

@@ -7,13 +7,25 @@ import 'package:TryOn/features/layout/presentation/widgets/no_connection.dart';
 import 'package:TryOn/features/product/presentation/manager/products_cubit.dart';
 import 'package:TryOn/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:TryOn/features/tryon/presentation/manager/camera_kit_cubit.dart';
+import 'package:TryOn/features/wishlist/presentation/manager/wishlist_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LayoutPage extends StatelessWidget {
+class LayoutPage extends StatefulWidget {
   const LayoutPage({super.key});
+
+  @override
+  State<LayoutPage> createState() => _LayoutPageState();
+}
+
+class _LayoutPageState extends State<LayoutPage> {
+  @override
+  void initState() {
+    super.initState();
+    WishlistCubit.get(context).getWishlist();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 
 class ApiService {
   static String baseUrl = 'https://virtual-fitting.onrender.com';
-
   static late Dio dio;
 
   static init() {
