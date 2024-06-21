@@ -18,4 +18,14 @@ class CartRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  static Future<Either<Failure, double>> getTotalPrice() async {
+    try {
+      var response = await ApiService.get(endPoint: '/carttotal');
+      return right(response.data['total_price']);
+    } on Exception catch (e) {
+      if (e is DioException) return left(ServerFailure.fromDioException(e));
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

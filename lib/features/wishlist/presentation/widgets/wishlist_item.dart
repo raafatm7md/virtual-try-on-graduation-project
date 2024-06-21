@@ -54,12 +54,12 @@ class WishlistItem extends StatelessWidget {
                           fontSize: 16.sp, fontWeight: FontWeight.bold),
                     ),
                     const Spacer(),
-                    const RatingStars(
+                    RatingStars(
                       size: 16,
-                      rating: 3.5,
+                      rating: product.rating!,
                     ),
                     Text(
-                      '(10)',
+                      '(${product.comments?.length})',
                       style: TextStyle(fontSize: 16.sp),
                     ),
                   ],

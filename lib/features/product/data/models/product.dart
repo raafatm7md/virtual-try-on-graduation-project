@@ -21,6 +21,7 @@ class Product {
   String? lensId;
   String? lensGroupId;
   int? category;
+  double? rating;
 
   Product({
     this.id,
@@ -37,6 +38,7 @@ class Product {
     this.lensId,
     this.lensGroupId,
     this.category,
+    this.rating,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
@@ -57,6 +59,7 @@ class Product {
         lensId: json["lens_id"],
         lensGroupId: json["lens_group_id"],
         category: json["category"],
+        rating: json["rating"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -76,6 +79,7 @@ class Product {
         "lens_id": lensId,
         "lens_group_id": lensGroupId,
         "category": category,
+        "rating": rating,
       };
 }
 

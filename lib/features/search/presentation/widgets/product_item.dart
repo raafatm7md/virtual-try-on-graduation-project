@@ -51,12 +51,12 @@ class ProductItem extends StatelessWidget {
                             fontSize: 18.sp, fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
-                      const RatingStars(
+                      RatingStars(
                         size: 18,
-                        rating: 3.5,
+                        rating: product.rating!,
                       ),
                       Text(
-                        '(10)',
+                        '(${product.comments?.length})',
                         style: TextStyle(fontSize: 18.sp),
                       ),
                     ],

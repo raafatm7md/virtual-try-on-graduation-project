@@ -1,6 +1,7 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/icons.dart';
 import 'package:TryOn/core/widgets/custom_loading.dart';
+import 'package:TryOn/features/cart/presentation/manager/cart_cubit.dart';
 import 'package:TryOn/features/layout/presentation/manager/app_cubit.dart';
 import 'package:TryOn/features/layout/presentation/widgets/custom_bottom_bar.dart';
 import 'package:TryOn/features/layout/presentation/widgets/no_connection.dart';
@@ -35,6 +36,7 @@ class _LayoutPageState extends State<LayoutPage> {
       providers: [
         BlocProvider(create: (context) => AppCubit()),
         BlocProvider(create: (context) => ProductsCubit()..getAllProducts()),
+        BlocProvider(create: (context) => CartCubit()..getCart()),
       ],
       child: BlocConsumer<AppCubit, AppState>(
         listener: (context, state) {
@@ -74,6 +76,7 @@ class _LayoutPageState extends State<LayoutPage> {
                               ProductsCubit.get(context).getAllProducts();
                               ProfileCubit.get(context).getUserData();
                               WishlistCubit.get(context).getWishlist();
+                              CartCubit.get(context).getCart();
                               await Future.delayed(
                                   const Duration(milliseconds: 1000));
                               refreshController.refreshCompleted();
