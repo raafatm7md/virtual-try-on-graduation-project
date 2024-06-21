@@ -12,6 +12,7 @@ import 'config/firebase/firebase_options.dart';
 import 'config/theme/app_theme.dart';
 import 'core/utilits/functions/api_service.dart';
 import 'core/utilits/functions/shared_pref.dart';
+import 'features/profile/presentation/manager/profile_cubit.dart';
 import 'features/wishlist/presentation/manager/wishlist_cubit.dart';
 
 Future<void> main() async {
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => CameraKitCubit()..initCameraKit(),
             lazy: false),
+        BlocProvider(create: (context) => ProfileCubit()),
         BlocProvider(create: (context) => WishlistCubit())
       ],
       child: ScreenUtilInit(

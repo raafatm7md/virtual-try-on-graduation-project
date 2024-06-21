@@ -26,6 +26,7 @@ class _LayoutPageState extends State<LayoutPage> {
   void initState() {
     super.initState();
     WishlistCubit.get(context).getWishlist();
+    ProfileCubit.get(context).getUserData();
   }
 
   @override
@@ -33,8 +34,6 @@ class _LayoutPageState extends State<LayoutPage> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AppCubit()),
-        BlocProvider(
-            create: (context) => ProfileCubit()..getUserData(), lazy: false),
         BlocProvider(create: (context) => ProductsCubit()..getAllProducts()),
       ],
       child: BlocConsumer<AppCubit, AppState>(

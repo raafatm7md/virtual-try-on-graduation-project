@@ -17,15 +17,22 @@ class ProfileRepo {
     }
   }
 
-  static Future<void> editUserData(
+  static Future<Either<Failure, UserData>> editUserData(
       {String? phoneNumber, String? address}) async {
-    await ApiService.post(
-      url: '/user',
-      data: {
-        'phone_number': phoneNumber,
-        'address': address,
-      },
-    );
+    try {
+      var response = await ApiService.put(
+        url: '/user',
+        data: {
+          'phone_number': phoneNumber,
+          'address': address,
+        },
+      );
+      UserData userData = UserData.fromJson(response.data);
+      return right(userData);
+    } on Exception catch (e) {
+      if (e is DioException) return left(ServerFailure.fromDioException(e));
+      return left(ServerFailure(e.toString()));
+    }
   }
 
   static Future<void> logout() async {
