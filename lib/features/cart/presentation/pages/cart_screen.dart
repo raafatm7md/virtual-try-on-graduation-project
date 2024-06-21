@@ -18,9 +18,8 @@ class CartScreen extends StatelessWidget {
         return Column(
           children: [
             Expanded(
-              child: cart.cartProducts == null
-                  ? const CustomLoadingIndicator()
-                  : cart.cartProducts!.isEmpty
+              child: cart.cartProducts != null
+                  ? cart.cartProducts!.isEmpty
                       ? const Center(
                           child: Text('No items in cart'),
                         )
@@ -29,7 +28,10 @@ class CartScreen extends StatelessWidget {
                               CartItem(product: cart.cartProducts![index]),
                           separatorBuilder: (context, index) =>
                               SizedBox(height: 15.h),
-                          itemCount: cart.cartProducts!.length),
+                          itemCount: cart.cartProducts!.length)
+                  : const Center(
+                      child: Text('No items in cart'),
+                    ),
             ),
             SizedBox(height: 10.h),
             Row(

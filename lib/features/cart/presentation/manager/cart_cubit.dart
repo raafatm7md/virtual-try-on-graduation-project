@@ -46,6 +46,10 @@ class CartCubit extends Cubit<CartState> {
     wishlistResponse.fold((failure) {
       showToast(msg: failure.errMessage, bg: Colors.red);
     }, (success) {
+      if (cartProducts!.length == 1) {
+        cartProducts!.clear();
+        totalPrice = 0;
+      }
       showToast(msg: 'Item removed from cart', bg: Colors.green);
       getCart();
     });
@@ -58,6 +62,8 @@ class CartCubit extends Cubit<CartState> {
       emit(CheckoutError());
       showToast(msg: failure.errMessage, bg: Colors.red);
     }, (success) {
+      cartProducts!.clear();
+      totalPrice = 0;
       emit(CheckoutSuccess());
     });
   }
