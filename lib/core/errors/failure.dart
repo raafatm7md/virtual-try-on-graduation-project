@@ -1,3 +1,4 @@
+import 'package:TryOn/core/utilits/functions/shared_pref.dart';
 import 'package:dio/dio.dart';
 
 abstract class Failure {
@@ -31,11 +32,15 @@ class ServerFailure extends Failure {
   }
 
   factory ServerFailure.fromBadResponse(int? statusCode, dynamic response) {
-    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+    if (statusCode == 400 || statusCode == 403) {
       if (response['error'] is List<dynamic>) {
         return ServerFailure(response['error'][0]);
       }
       return ServerFailure(response['error']);
+    } else if (statusCode == 401) {
+      CacheHelper.removeData('accessToken');
+      CacheHelper.removeData('refreshToken');
+      return ServerFailure('Unauthorized');
     } else if (statusCode == 404) {
       return ServerFailure('Request Not Found, Please Try Later!');
     } else if (statusCode == 500) {
