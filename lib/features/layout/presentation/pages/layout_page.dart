@@ -1,27 +1,41 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/icons.dart';
 import 'package:TryOn/core/widgets/custom_loading.dart';
+import 'package:TryOn/features/cart/presentation/manager/cart_cubit.dart';
 import 'package:TryOn/features/layout/presentation/manager/app_cubit.dart';
 import 'package:TryOn/features/layout/presentation/widgets/custom_bottom_bar.dart';
 import 'package:TryOn/features/layout/presentation/widgets/no_connection.dart';
 import 'package:TryOn/features/product/presentation/manager/products_cubit.dart';
 import 'package:TryOn/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:TryOn/features/tryon/presentation/manager/camera_kit_cubit.dart';
+import 'package:TryOn/features/wishlist/presentation/manager/wishlist_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class LayoutPage extends StatelessWidget {
+class LayoutPage extends StatefulWidget {
   const LayoutPage({super.key});
+
+  @override
+  State<LayoutPage> createState() => _LayoutPageState();
+}
+
+class _LayoutPageState extends State<LayoutPage> {
+  @override
+  void initState() {
+    super.initState();
+    ProfileCubit.get(context).getUserData();
+    CartCubit.get(context).getCart();
+    WishlistCubit.get(context).getWishlist();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AppCubit()),
-        BlocProvider(
-            create: (context) => ProfileCubit()..getUserData(), lazy: false),
         BlocProvider(create: (context) => ProductsCubit()..getAllProducts()),
       ],
       child: BlocConsumer<AppCubit, AppState>(
@@ -29,6 +43,8 @@ class LayoutPage extends StatelessWidget {
           if (state is StartTryOn) CameraKitCubit.get(context).openCameraKit();
         },
         builder: (context, state) {
+          RefreshController refreshController =
+              RefreshController(initialRefresh: false);
           var cubit = AppCubit.get(context);
           return Scaffold(
             appBar: AppBar(
@@ -53,7 +69,19 @@ class LayoutPage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 15.w),
                     child: result!.contains(ConnectivityResult.none)
                         ? const NoConnectionWidget()
-                        : cubit.screens[cubit.currentIndex],
+                        : SmartRefresher(
+                            controller: refreshController,
+                            header: const MaterialClassicHeader(),
+                            onRefresh: () async {
+                              ProductsCubit.get(context).getAllProducts();
+                              ProfileCubit.get(context).getUserData();
+                              WishlistCubit.get(context).getWishlist();
+                              CartCubit.get(context).getCart();
+                              await Future.delayed(
+                                  const Duration(milliseconds: 1000));
+                              refreshController.refreshCompleted();
+                            },
+                            child: cubit.screens[cubit.currentIndex]),
                   );
                 } else {
                   return const CustomLoadingIndicator();

@@ -27,6 +27,23 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
+  Future<void> editUserData({String? phoneNumber, String? address}) async {
+    emit(EditProfileLoading());
+    var response = await ProfileRepo.editUserData(
+        phoneNumber: phoneNumber, address: address);
+    response.fold(
+      (failure) {
+        emit(EditProfileError());
+        showToast(msg: failure.errMessage, bg: Colors.red);
+      },
+      (userData) {
+        user = userData;
+        showToast(msg: 'user updated successfully', bg: Colors.green);
+        emit(EditProfileSuccess());
+      },
+    );
+  }
+
   Future<void> logout() async {
     await ProfileRepo.logout();
     CacheHelper.removeData('accessToken');

@@ -10,6 +10,7 @@ class AppTextFormField extends StatelessWidget {
   final Widget? suffix;
   final String? Function(String?)? validator;
   final void Function(String)? onSubmit;
+  final bool enabled;
   const AppTextFormField({
     super.key,
     required this.type,
@@ -20,6 +21,7 @@ class AppTextFormField extends StatelessWidget {
     this.suffix,
     this.validator,
     this.onSubmit,
+    this.enabled = true,
   });
 
   @override
@@ -33,6 +35,7 @@ class AppTextFormField extends StatelessWidget {
         ),
         const SizedBox(height: 2.0),
         TextFormField(
+          enabled: enabled,
           obscureText: isPassword,
           controller: fieldController,
           keyboardType: inputType,

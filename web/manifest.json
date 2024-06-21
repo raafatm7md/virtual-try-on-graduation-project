@@ -1,11 +1,11 @@
 {
-    "name": "Prova 3D",
-    "short_name": "Prova 3D",
+    "name": "virtual_try_on_graduation_project",
+    "short_name": "virtual_try_on_graduation_project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#hexcode",
-    "description": "Virtually Try-On OutFits",
+    "theme_color": "#0175C2",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

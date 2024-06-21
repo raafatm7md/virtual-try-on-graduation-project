@@ -23,10 +23,8 @@ class SignUpRepo {
           'password': password,
           'password_confirm': passwordConfirm,
           'image': profileImage != null
-              ? await MultipartFile.fromFile(
-                  profileImage,
-                  filename: profileImage.split('/').last,
-                )
+              ? await MultipartFile.fromFile(profileImage,
+                  filename: profileImage.split('/').last)
               : null,
         }),
       );

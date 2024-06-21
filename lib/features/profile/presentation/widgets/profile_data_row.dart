@@ -1,4 +1,5 @@
 import 'package:TryOn/core/constants/colors.dart';
+import 'package:TryOn/features/profile/presentation/pages/edit_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +18,12 @@ class ProfileData extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: const BorderRadius.all(Radius.circular(8)),
-      onTap: () {},
+      onTap: () => Navigator.push(
+          context,
+          DialogRoute(
+            context: context,
+            builder: (context) => const EditProfileScreen(),
+          )),
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 5.w),
         child: Row(

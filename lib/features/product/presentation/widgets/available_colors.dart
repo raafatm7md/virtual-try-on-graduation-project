@@ -19,22 +19,22 @@ class AvailableColors extends StatelessWidget {
         Row(
           children: [
             CircleAvatar(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.red[100],
               radius: 20.r,
             ),
             SizedBox(width: 5.h),
             CircleAvatar(
-              backgroundColor: Colors.blue,
+              backgroundColor: Colors.blue[100],
               radius: 20.r,
             ),
             SizedBox(width: 5.h),
             CircleAvatar(
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Colors.deepPurple[100],
               radius: 20.r,
             ),
             SizedBox(width: 5.h),
             CircleAvatar(
-              backgroundColor: Colors.tealAccent,
+              backgroundColor: Colors.tealAccent[100],
               radius: 20.r,
             ),
           ],

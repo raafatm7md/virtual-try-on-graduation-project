@@ -16,31 +16,31 @@ class ProductsCubit extends Cubit<ProductsState> {
 
   Future<void> getAllProducts() async {
     var menResponse = await ProductsRepo.getMenProducts();
-    var womenResponse = await ProductsRepo.getMenProducts();
-    var kidsResponse = await ProductsRepo.getMenProducts();
+    var womenResponse = await ProductsRepo.getWomenProducts();
+    var kidsResponse = await ProductsRepo.getKidsProducts();
 
     menResponse.fold((failure) {
-      emit(state);
+      emit(GetProductsMenError());
       showToast(msg: failure.errMessage, bg: Colors.red);
     }, (menList) {
       menProducts = menList;
-      emit(state);
+      emit(GetProductsMenSuccess());
     });
 
     womenResponse.fold((failure) {
-      emit(state);
+      emit(GetProductsWomenError());
       showToast(msg: failure.errMessage, bg: Colors.red);
     }, (womenList) {
       womenProducts = womenList;
-      emit(state);
+      emit(GetProductsWomenSuccess());
     });
 
     kidsResponse.fold((failure) {
-      emit(state);
+      emit(GetProductsKidsError());
       showToast(msg: failure.errMessage, bg: Colors.red);
     }, (kidsList) {
       kidsProducts = kidsList;
-      emit(state);
+      emit(GetProductsKidsSuccess());
     });
   }
 }

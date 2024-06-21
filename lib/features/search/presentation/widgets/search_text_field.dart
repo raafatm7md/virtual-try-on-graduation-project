@@ -1,3 +1,4 @@
+import 'package:TryOn/features/search/presentation/manager/search_cubit.dart';
 import 'package:flutter/material.dart';
 
 class SearchTextField extends StatelessWidget {
@@ -17,8 +18,9 @@ class SearchTextField extends StatelessWidget {
             prefixIcon: Icon(Icons.search_outlined),
             hintText: 'What are you looking for ?',
             border: OutlineInputBorder()),
-        onChanged: (value) {},
-        onFieldSubmitted: (value) {},
+        onChanged: (value) {
+          SearchCubit.get(context).searchByName(_searchController.text);
+        },
       ),
     );
   }

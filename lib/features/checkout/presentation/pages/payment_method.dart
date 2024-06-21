@@ -1,5 +1,6 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/constants/constants.dart';
+import 'package:TryOn/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:u_credit_card/u_credit_card.dart';
@@ -28,16 +29,16 @@ class PaymentMethodScreen extends StatelessWidget {
               style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 10.h),
-            const CreditCardUi(
-              cardHolderFullName: 'Raafat Mohamed',
-              cardNumber: '1234 5678 9123 4567',
+            CreditCardUi(
+              cardHolderFullName: ProfileCubit.get(context).user!.userName!,
+              cardNumber: '7554567891239756',
               validThru: '05/25',
               topLeftColor: Colors.blue,
               placeNfcIconAtTheEnd: true,
               showValidFrom: false,
               cardType: CardType.debit,
               enableFlipping: true,
-              cvvNumber: '123',
+              cvvNumber: '777',
               creditCardType: CreditCardType.mastercard,
             ),
             Row(
@@ -56,9 +57,9 @@ class PaymentMethodScreen extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10.h),
-            const CreditCardUi(
-              cardHolderFullName: 'Raafat Mohamed',
-              cardNumber: '9876543219876543',
+            CreditCardUi(
+              cardHolderFullName: ProfileCubit.get(context).user!.userName!,
+              cardNumber: '9565543219876531',
               validThru: '03/26',
               enableFlipping: true,
               placeNfcIconAtTheEnd: true,
