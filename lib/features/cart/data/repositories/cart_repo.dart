@@ -49,9 +49,9 @@ class CartRepo {
   static Future<Either<Failure, dynamic>> removeFromCart(
       {required int productId}) async {
     try {
-      var response = await ApiService.delete(
-        url: '/cartitem/$productId',
-      );
+      var response = await ApiService.delete(url: '/cartitem/delete', data: {
+        'product_id': productId,
+      });
       return right(response.data);
     } on Exception catch (e) {
       if (e is DioException) return left(ServerFailure.fromDioException(e));

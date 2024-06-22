@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CartItemCounter extends StatelessWidget {
   final dynamic quantity;
   final int id;
+  final int index;
   final double height;
   final double width;
   final double borderRadius;
@@ -14,7 +15,8 @@ class CartItemCounter extends StatelessWidget {
       required this.width,
       this.borderRadius = 10,
       required this.quantity,
-      required this.id});
+      required this.id,
+      required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class CartItemCounter extends StatelessWidget {
           Expanded(
             child: InkWell(
               onTap: () {
-                CartCubit.get(context).addToCart(productId: id);
+                CartCubit.get(context).addToCart(productId: id, index: index);
               },
               child: Container(
                   height: height,

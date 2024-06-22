@@ -8,9 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CartItem extends StatelessWidget {
   final dynamic product;
+  final int index;
   const CartItem({
     super.key,
     this.product,
+    required this.index,
   });
 
   @override
@@ -82,6 +84,7 @@ class CartItem extends StatelessWidget {
                         width: 130.w,
                         quantity: product.last,
                         id: product[0].id,
+                        index: index,
                       ),
                     ],
                   ),

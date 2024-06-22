@@ -1,6 +1,5 @@
 import 'package:TryOn/core/constants/colors.dart';
 import 'package:TryOn/core/widgets/app_button.dart';
-import 'package:TryOn/core/widgets/custom_loading.dart';
 import 'package:TryOn/features/cart/presentation/manager/cart_cubit.dart';
 import 'package:TryOn/features/cart/presentation/widgets/cart_item.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +23,10 @@ class CartScreen extends StatelessWidget {
                           child: Text('No items in cart'),
                         )
                       : ListView.separated(
-                          itemBuilder: (context, index) =>
-                              CartItem(product: cart.cartProducts![index]),
+                          itemBuilder: (context, index) => CartItem(
+                                product: cart.cartProducts![index],
+                                index: index,
+                              ),
                           separatorBuilder: (context, index) =>
                               SizedBox(height: 15.h),
                           itemCount: cart.cartProducts!.length)

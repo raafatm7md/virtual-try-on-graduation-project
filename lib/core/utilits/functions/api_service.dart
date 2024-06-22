@@ -51,12 +51,12 @@ class ApiService {
   }
 
   static Future<Response> delete(
-      {required String url, Map<String, dynamic>? query, String? token}) async {
+      {required String url, Map<String, dynamic>? query, String? token, Map<String, dynamic>? data,}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Authorization': token ?? CacheHelper.getData('accessToken'),
     };
-    return await dio.delete(url, queryParameters: query);
+    return await dio.delete(url, queryParameters: query, data: data);
   }
 }

@@ -38,9 +38,9 @@ class WishlistRepo {
   static Future<Either<Failure, dynamic>> removeFromWishlist(
       {required int productId}) async {
     try {
-      var response = await ApiService.delete(
-        url: '/favorites/$productId',
-      );
+      var response = await ApiService.delete(url: '/favorites/delete', data: {
+        'product_id': productId,
+      });
       return right(response.data);
     } on Exception catch (e) {
       if (e is DioException) return left(ServerFailure.fromDioException(e));

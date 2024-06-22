@@ -31,7 +31,11 @@ class CartCubit extends Cubit<CartState> {
     });
   }
 
-  Future<void> addToCart({required int productId}) async {
+  Future<void> addToCart({required int productId, int? index}) async {
+    if (index != null) {
+      cartProducts?[index].last++;
+      emit(AddItem());
+    }
     var wishlistResponse = await CartRepo.addToCart(productId: productId);
     wishlistResponse.fold((failure) {
       showToast(msg: failure.errMessage, bg: Colors.red);
@@ -49,6 +53,7 @@ class CartCubit extends Cubit<CartState> {
       if (cartProducts!.length == 1) {
         cartProducts!.clear();
         totalPrice = 0;
+        emit(RemoveItem());
       }
       showToast(msg: 'Item removed from cart', bg: Colors.green);
       getCart();

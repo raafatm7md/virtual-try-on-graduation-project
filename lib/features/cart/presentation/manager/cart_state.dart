@@ -14,3 +14,7 @@ final class CheckoutLoading extends CartState {}
 final class CheckoutSuccess extends CartState {}
 
 final class CheckoutError extends CartState {}
+
+final class AddItem extends CartState {}
+
+final class RemoveItem extends CartState {}
